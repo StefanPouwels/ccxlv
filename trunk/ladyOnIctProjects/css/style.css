@@ -1,0 +1,20 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+	background-color:#1e1916;
+}
+
+.label {	
+	font-family: arial, "lucida console", sans-serif;	
+	font-size:11px;
+	color:#999a9c;
+	letter-spacing:1px;
+	line-height:16px;
+}
