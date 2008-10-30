@@ -1,238 +1,259 @@
-<html>
-<head>
-<title>ZuidVast</title>
-<link rel="stylesheet" href="zv/css/style.css" type="text/css">
-<script type="text/javascript" src="zv/js/j.js"></script>
-<script type="text/javascript" src="zv/js/prototype.js"></script>
+<head> 
+<title>ZuidVast</title> 
+<link rel="stylesheet" href="zv/css/style.css" type="text/css"> 
+<script type="text/javascript" src="zv/js/j.js"></script> 
+<script type="text/javascript" src="zv/js/prototype.js"></script> 
 <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAbtz00isjVaQJiRjkUWovcRTd-2r-cxhKOwQvxNgbuA0s6slyZRQ7SI6pt5MnJxiSf4P2_SfjWoi8Mw"
-  type="text/javascript"></script>
 
-<body style="background-image:url(zv/img/zv_bg.gif); background-repeat:no-repeat;" onunload="GUnload()">
-<center>
-
+  type="text/javascript"></script> 
+ 
+<body style="background-image:url(zv/img/zv_bg.gif); background-repeat:no-repeat;"  onload="initialize()" onunload="GUnload()"> 
+<center> 
+ 
 	
-
-	<div style="margin-left:35px; margin-right:35px;">
-    	<div style="width:750px; margin-top:15px;">
-    		<div id="zv" style="margin-bottom:10px; ">
-    			<div class="top_inner" style="margin-left:15px; ">
-    				<div class="menu clear" style="float:right; font-family:Arial, Helvetica, sans-serif; font-size:11px;padding-top:25px;">
+ 
+	<div style="margin-left:35px; margin-right:35px;"> 
+    	<div style="width:750px; margin-top:15px;"> 
+    		<div id="zv" style="margin-bottom:10px; "> 
+    			<div class="top_inner" style="margin-left:15px; "> 
+    				<div class="menu clear" style="float:right; font-family:Arial, Helvetica, sans-serif; font-size:11px;padding-top:25px;"> 
     					<!--
     					<a href="">Home</a>&nbsp;&nbsp;|&nbsp;&nbsp;
     					<a href="">Contact</a>&nbsp;&nbsp;|&nbsp;&nbsp;
     					<a href="">Over ons</a>&nbsp;&nbsp;|&nbsp;&nbsp;
     					<a href="">Site map</a>
-    					-->
-    					<div class="li"><a class="under" id="site_map_link" href="#" onclick="goToPage('site_map');">Site map</a></div>
-    					<div class="li"><a class="under" id="extra_link" href="#" onclick="goToPage('extra');">Extra</a></div>
-    					<div class="li"><a class="under" id="over_ons_link" href="#" onclick="goToPage('over_ons');">Over ons</a></div>
-    					<div class="li"><a class="under" id="contact_link" href="#" onclick="goToPage('contact');">Contact</a></div>
-    					<div class="li"><a class="currentmenu" id="home_link" href="#" onclick="goToPage('home');">Home</a></div>
     					
-    				</div>
+    					<div class="li"><a class="under" id="site_map_link" href="#" onclick="goToPage('site_map');">Site map</a></div> 
+    					<div class="li"><a class="under" id="extra_link" href="#" onclick="goToPage('extra');">Extra</a></div> 
+    					<div class="li"><a class="under" id="over_ons_link" href="#" onclick="goToPage('over_ons');">Over ons</a></div> 
+    					--> 
+    					<div class="li"><a class="under" id="contact_link" href="javascript:void(0);" onclick="goToPage('contact');">Contact</a></div> 
+    					<div class="li"><a class="currentmenu" id="home_link" href="javascript:void(0);" onclick="goToPage('home');">Home</a></div> 
+    					
+    				</div> 
     				<!--<div style="float:left; padding-top:16px;">
     					<img src="img/zuidvast.gif" width="125" height="37">
-    				</div>-->
-    			</div>
-    		</div>
+    				</div>--> 
+    			</div> 
+    		</div> 
     		
-    		<!-- begin of home -->
-    		<div id="home" style="display:">
+    		<!-- begin of home --> 
+    		<div id="home" style="display:"> 
 	    		<div id="headImage" 
-	    			style="height:207px;border:7px solid #D5D5D5;padding:0px;margin:0px;"><img id="head_image" src="zv/img/zuidvast_inbeelden.jpg" width="736" height="207"></div>
-	    		<div id="content" style="text-align:left; padding-top:10px;">
-	    		
-	    			<div id="leftColumn" style="width:250px; float:left;">
-	    					<img src="zv/img/1.gif" width="250" height="43" alt="What we do" />
-	    					<div style="width:230px; height:16px;" class="bar"></div>
-	    					<div style="text-align:left; padding-left:10px; padding-right:20px;">
 
+	    			style="height:207px;border:7px solid #D5D5D5;padding:0px;margin:0px;"><img id="head_image" src="zv/img/zuidvast_inbeelden.jpg" width="736" height="207"></div> 
+	    		<div id="content" style="text-align:left; padding-top:10px;"> 
+	    		
+	    			<div id="leftColumn" style="width:250px; float:left;"> 
+	    					<img src="zv/img/1.gif" width="250" height="43" alt="What we do" /> 
+	    					<div style="width:230px; height:16px;" class="bar"></div> 
+	    					<div style="text-align:left; padding-left:10px; padding-right:20px;"> 
 								<a href="">Zuidvast</a> is een onafhankelijke en risicodragende projectonwikkelaar 
-								gespecialiseerd in het ontwikkelen van woningen, bedrijfsgebouwen en kantoren.<br>
-								<br>
-								Zuidvast combineert concept, architectuur en techniek om verrassende en resultaatgerichte 
-								projecten te realiseren.
-
-	    					</div>
-	    			</div>
+								gespecialiseerd in het ontwikkelen van woningen, bedrijfsgebouwen en kantoren in zuid Nederland<br> 
+								
+ 
+	    					</div> 
+	    			</div> 
 	    			
-	    			<div id="leftColumn" style="width:250px; float:left;">
-	    					<img src="zv/img/2.gif" width="250" height="43" alt="What we do" />
-	    					<div style="width:230px; height:16px;" class="bar"></div>
-	    					<div style="text-align:left; padding-left:10px; padding-right:20px;">
-
-								Zuidvast gaat in haar ontwerp altijd uit van de eindgebruiker van het project: de bewoner van de
-								woning, de personeelsleden van het bedrijf, de klant van onze klant, &uacute;w klant.<br>								
-								<br>
-								Met passie, plezier en gezond verstand werken wij samen met grote en kleine klanten.
-
-							</div>
-	    			</div>
-	    			
-	    			<div id="leftColumn" style="width:250px; float:left;">
-	    					<img src="zv/img/3.gif" width="250" height="43" alt="What we do" />
-	    					<div style="width:230px; height:16px;" class="bar"></div>
-	    					<div style="text-align:left; padding-left:10px; padding-right:20px;">
-
+	    			<div id="leftColumn" style="width:250px; float:left;"> 
+	    					<img src="zv/img/2.gif" width="250" height="43" alt="What we do" /> 
+	    					<div style="width:230px; height:16px;" class="bar"></div> 
+	    					<div style="text-align:left; padding-left:10px; padding-right:20px;"> 
 								Zuidvast is ambitieus en doortastend. Een conceptontwikkelaar, die niet denkt in gebouwen en projecten, maar 
-								in termen van individuele mensen, omgeving en cultuur en die beschikt over een breed netwerk van architecten, 
-								bouwers, financiers en beleggers.
-
-							</div>
+								in termen van individuele mensen, omgeving en cultuur.
+								
+								
+ 
+							</div> 
+	    			</div> 
+	    			
+	    			<div id="leftColumn" style="width:250px; float:left;"> 
+	    					<img src="zv/img/3.gif" width="250" height="43" alt="What we do" /> 
+	    					<div style="width:230px; height:16px;" class="bar"></div> 
+	    					<div style="text-align:left; padding-left:10px; padding-right:20px;"> 
+								Zuidvast beschikt over een breed netwerk van architecten, bouwers, financiers, beleggers en corporaties.
+								Op diverse plekken in zuid Nederland ontwikkelt ze samen met hen projecten.
+								
+							</div> 
 	    			</div>					
 	    			
-	    		</div>
-    		</div>
-    		<!-- end of home -->
+	    		</div> 
+    		</div> 
+    		<!-- end of home --> 
     		
-    		<!-- begin of over_ons -->
-    		<div id="over_ons" style="display:none;">
+    		<!-- begin of over_ons --> 
+    		<div id="over_ons" style="display:none;"> 
 	    		<div id="headImage" 
-	    			style="height:207px;border:7px solid #D5D5D5;padding:0px;margin:0px;"><img id="head_image" src="zv/img/zuidvast_instandhouding.jpg" width="736" height="207"></div>
-	    		<div id="content" style="text-align:left; padding-top:10px;">
+	    			style="height:207px;border:7px solid #D5D5D5;padding:0px;margin:0px;"><img id="head_image" src="zv/img/zuidvast_instandhouding.jpg" width="736" height="207"></div> 
+	    		<div id="content" style="text-align:left; padding-top:10px;"> 
 	    		
-	    			<div id="leftColumn" style="width:250px; float:left;">
-	    					<img src="zv/img/1.gif" width="250" height="43" alt="What we do" />
-	    					<div style="width:230px; height:16px;" class="bar"></div>
+	    			<div id="leftColumn" style="width:250px; float:left;"> 
+	    					<img src="zv/img/1.gif" width="250" height="43" alt="What we do" /> 
+	    					<div style="width:230px; height:16px;" class="bar"></div> 
 	    					<div style="text-align:left; padding-left:10px; padding-right:20px;"><a class="link" href="/">Zuidvast</a> over ons, euismod sed, varius nec, pharetra ac, magna. Integer est. Pellentesque varius imperdiet nulla. Sed nec magna ut nulla pellentesque nonummy.<br><br>Mauris tellus egestas ipsum, nec pellentesque <a class="link" href="/">libero ligula</a> id lorem.
-	    					</div>
-	    			</div>
+	    					</div> 
+	    			</div> 
 	    			
-	    			<div id="leftColumn" style="width:250px; float:left;">
-	    					<img src="zv/img/2.gif" width="250" height="43" alt="What we do" />
-	    					<div style="width:230px; height:16px;" class="bar"></div>
+	    			<div id="leftColumn" style="width:250px; float:left;"> 
+	    					<img src="zv/img/2.gif" width="250" height="43" alt="What we do" /> 
+	    					<div style="width:230px; height:16px;" class="bar"></div> 
 	    					<div style="text-align:left; padding-left:10px; padding-right:20px;">Phasellus iaculis, eros et interdum ultricies, <a class="link" href="/">magna diam</a> posuere ligula, sed volutpat sem purus tempus felis. Praesent vehicula mi sit amet felis. Aliquam pulvinar mattis lorem. Nunc egestas, mauris <a class="link" href="/">Zuidvast</a> ut dapibus tincidunt, mauris tellus egestas ipsum, nec pellentesque libero ligula id lorem.
-	    					</div>
-	    			</div>
+	    					</div> 
+	    			</div> 
 	    			
-	    			<div id="leftColumn" style="width:250px; float:left;">
-	    					<img src="zv/img/3.gif" width="250" height="43" alt="What we do" />
-	    					<div style="width:230px; height:16px;" class="bar"></div>
+	    			<div id="leftColumn" style="width:250px; float:left;"> 
+	    					<img src="zv/img/3.gif" width="250" height="43" alt="What we do" /> 
+	    					<div style="width:230px; height:16px;" class="bar"></div> 
 	    					<div style="text-align:left; padding-left:10px; padding-right:20px;">Donec in risus ac tortor hendrerit varius. Nullam velit felis, eleifend eleifend, lobortis id, semper vulputate, ligula. Nunc sem magna, sollicitudin sit amet, auctor vel, <a class="link" href="/">Zuidvast</a> condimentum id, nunc. Nullam auctor. Fusce urna. Phasellus aliquet pharetra arcu.
-	    					</div>
+	    					</div> 
 	    			</div>					
 	    			
-	    		</div>
-    		</div>
+	    		</div> 
+    		</div> 
     		<!-- end of over_ons -->    
     		
-    		<!-- begin of contact -->
-    		<div id="contact" style="display:none;">    			
+    		<!-- begin of contact --> 
+    		<div id="contact" style="display:none;">    	
     			
-    			<div id="headImage" style="height:207px;border:7px solid #D5D5D5;padding:0px;margin:0px;">
-	    			<div id="map_canvas" style="width:736px;height:207px;"></div>
-	    		</div>
-	    		<div id="content" style="text-align:left; padding-top:10px;">
-	    		
-	    			<div id="leftColumn" style="width:250px; float:left;">
-	    					<img src="zv/img/1.gif" width="250" height="43" alt="What we do" />
-	    					<div style="width:230px; height:16px;" class="bar"></div>
-	    					<div style="text-align:left; padding-left:10px; padding-right:20px;"><a class="link" href="/">Zuidvast</a> contact, euismod sed, varius nec, pharetra ac, magna. Integer est. Pellentesque varius imperdiet nulla. Sed nec magna ut nulla pellentesque nonummy.<br><br>Mauris tellus egestas ipsum, nec pellentesque <a class="link" href="/">libero ligula</a> id lorem.
-	    					</div>
-	    			</div>
-	    			
-	    			<div id="leftColumn" style="width:250px; float:left;">
-	    					<img src="zv/img/2.gif" width="250" height="43" alt="What we do" />
-	    					<div style="width:230px; height:16px;" class="bar"></div>
-	    					<div style="text-align:left; padding-left:10px; padding-right:20px;">Phasellus iaculis, eros et interdum ultricies, <a class="link" href="/">magna diam</a> posuere ligula, sed volutpat sem purus tempus felis. Praesent vehicula mi sit amet felis. Aliquam pulvinar mattis lorem. Nunc egestas, mauris <a class="link" href="/">Zuidvast</a> ut dapibus tincidunt, mauris tellus egestas ipsum, nec pellentesque libero ligula id lorem.
-	    					</div>
-	    			</div>
-	    			
-	    			<div id="leftColumn" style="width:250px; float:left;">
-	    					<img src="zv/img/3.gif" width="250" height="43" alt="What we do" />
-	    					<div style="width:230px; height:16px;" class="bar"></div>
+    			<div id="headImage" style="height:207px;border:7px solid #D5D5D5;padding:0px;margin:0px;"> 
+    				<img id="head_image_contact" src="zv/img/zuidvast_instandhouding.jpg" width="736" height="207">	    		
+	    			<div id="map_canvas" style="width:736px;height:207px;display:none;"></div> 
+	    		</div> 
+	    		<div id="content" style="text-align:left; padding-top:10px;"> 
+
+	    			<div id="leftColumn" style="width:250px; float:left;"> 
+	    					<img src="zv/img/4.gif" width="250" height="43" alt="What we do" /> 
+	    					<div style="width:230px; height:16px;" class="bar"></div> 
 	    					<div style="text-align:left; padding-left:10px; padding-right:20px;">
-								Willem de Zwijgerstraat 57<br />
-								5616 AD EINDHOVEN<br />
-								06 13480075<br />
-								040 296 33 66 (tel)<br />
-								040 296 33 11 (fax)<br />
-								michiel@zuidvast.nl
-	    					</div>
-	    			</div>					
+	    					Phasellus iaculis, eros et interdum ultricies, <a class="link" href="/">magna diam</a> posuere 
+	    					ligula, sed volutpat sem purus tempus felis. Praesent vehicula mi sit amet felis. Aliquam 
+	    					pulvinar mattis lorem. Nunc egestas, mauris <a class="link" href="/">Zuidvast</a> ut dapibus 
+	    					tincidunt, mauris tellus egestas ipsum, nec pellentesque libero ligula id lorem.
+	    					</div> 
+	    			</div> 
+	
+	    			<div id="leftColumn" style="width:250px; float:left;"> 
+	    					<img src="zv/img/5.gif" width="250" height="43" alt="Contactformulier Zuidvast" /> 
+	    					<div style="width:230px; height:16px;" class="bar"></div> 
+	    					<div style="text-align:left; padding-left:10px; padding-right:20px;">
+	    						Voor een routebeschrijving 
+	    						<a href="javascript:void(0);" onclick="$('head_image_contact').hide();$('map_canvas').show();showAddress('Willem de Zwijgerstraat 57, eindhoven, netherlands');">naar Zuidvast</a>
+	    						 kunt u hier uw adres invullen.<br>
+	    						 <br>
+	    						 <span style="font-size:11px;color:#666666;font-style:italic;">Voorbeeld: Gedempte Gracht 25, Eindhoven</span>
+	    						 <input id="fromAddress" value="">
+	    						 <input type="hidden" value="Willem de Zwijgerstraat 57, 5616 AD, Eindhoven, Nederland" id="toAddress">
+	    						 <a style="float:right;font-size:11px;" href="javascript:void(0);" onclick="go();">Routebeschrijving</a>
+	    					</div> 
+	    			</div> 	
+	
+	    			<div id="leftColumn" style="width:250px; float:left;"> 
+	    					<img src="zv/img/6.gif" width="250" height="43" alt="Adres Zuidvast" /> 
+	    					<div style="width:230px; height:16px;" class="bar"></div> 
+	    					<div style="text-align:left; padding-left:10px; padding-right:20px;"> 
+								Willem de Zwijgerstraat 57<br /> 
+								5616 AD EINDHOVEN<br /> 
+								040 296 33 66 (tel)<br /> 
+								040 296 33 11 (fax)<br /> 
+								<a href="mailto:info@zuidvast.nl">info@zuidvast.nl</a>
+	    					</div> 
+	    			</div>		    			
 	    			
-	    		</div>
-    		</div>
+	    			<div id="routeBeschrijving" style="width:490px; float:left;display:none;padding-top:25px;"> 
+	    					<a style="float:right;font-size:11px;padding:25px 20px 0px 0px;" id="printImg""href="" target="_blank">
+							<img src="zv/img/printer.gif" width="16" height="16" border="0"></a>
+	    					<a style="float:right;font-size:11px;padding:25px 3px 0px 0px;" id="printText""href="" target="_blank">Print</a>
+							<img src="zv/img/7.gif" width="250" height="43" alt="Routebeschrijving Zuidvast" /> 
+	    					<div style="width:480px; height:16px;" class="bar"></div> 
+	    					<div style="text-align:left; padding-left:10px; padding-right:20px;"> 	    			
+	    						<div id="directions" style="float:right;width:450px;"></div>
+	    					</div>
+	    			</div>
+	    			
+	    		</div> 
+    		</div> 
     		<!-- end of contact -->       				
  
-     		<!-- begin of site_map -->
-    		<div id="site_map" style="display:none;">
+     		<!-- begin of site_map --> 
+    		<div id="site_map" style="display:none;"> 
 	    		<div id="headImage" 
-	    			style="height:207px;border:7px solid #D5D5D5;padding:0px;margin:0px;"><img id="head_image" src="zv/img/zuidvast_inspannen.jpg" width="736" height="207"></div>
-	    		<div id="content" style="text-align:left; padding-top:10px;">
+
+	    			style="height:207px;border:7px solid #D5D5D5;padding:0px;margin:0px;"><img id="head_image" src="zv/img/zuidvast_inspannen.jpg" width="736" height="207"></div> 
+	    		<div id="content" style="text-align:left; padding-top:10px;"> 
 	    		
-	    			<div id="leftColumn" style="width:250px; float:left;">
-	    					<img src="zv/img/1.gif" width="250" height="43" alt="What we do" />
-	    					<div style="width:230px; height:16px;" class="bar"></div>
+	    			<div id="leftColumn" style="width:250px; float:left;"> 
+	    					<img src="zv/img/1.gif" width="250" height="43" alt="What we do" /> 
+	    					<div style="width:230px; height:16px;" class="bar"></div> 
 	    					<div style="text-align:left; padding-left:10px; padding-right:20px;"><a class="link" href="/">Zuidvast</a> site map, euismod sed, varius nec, pharetra ac, magna. Integer est. Pellentesque varius imperdiet nulla. Sed nec magna ut nulla pellentesque nonummy.<br><br>Mauris tellus egestas ipsum, nec pellentesque <a class="link" href="/">libero ligula</a> id lorem.
-	    					</div>
-	    			</div>
+	    					</div> 
+	    			</div> 
 	    			
-	    			<div id="leftColumn" style="width:250px; float:left;">
-	    					<img src="zv/img/2.gif" width="250" height="43" alt="What we do" />
-	    					<div style="width:230px; height:16px;" class="bar"></div>
+	    			<div id="leftColumn" style="width:250px; float:left;"> 
+	    					<img src="zv/img/2.gif" width="250" height="43" alt="What we do" /> 
+	    					<div style="width:230px; height:16px;" class="bar"></div> 
 	    					<div style="text-align:left; padding-left:10px; padding-right:20px;">Phasellus iaculis, eros et interdum ultricies, <a class="link" href="/">magna diam</a> posuere ligula, sed volutpat sem purus tempus felis. Praesent vehicula mi sit amet felis. Aliquam pulvinar mattis lorem. Nunc egestas, mauris <a class="link" href="/">Zuidvast</a> ut dapibus tincidunt, mauris tellus egestas ipsum, nec pellentesque libero ligula id lorem.
-	    					</div>
-	    			</div>
+	    					</div> 
+	    			</div> 
 	    			
-	    			<div id="leftColumn" style="width:250px; float:left;">
-	    					<img src="zv/img/3.gif" width="250" height="43" alt="What we do" />
-	    					<div style="width:230px; height:16px;" class="bar"></div>
+	    			<div id="leftColumn" style="width:250px; float:left;"> 
+	    					<img src="zv/img/3.gif" width="250" height="43" alt="What we do" /> 
+	    					<div style="width:230px; height:16px;" class="bar"></div> 
 	    					<div style="text-align:left; padding-left:10px; padding-right:20px;">Donec in risus ac tortor hendrerit varius. Nullam velit felis, eleifend eleifend, lobortis id, semper vulputate, ligula. Nunc sem magna, sollicitudin sit amet, auctor vel, <a class="link" href="/">Zuidvast</a> condimentum id, nunc. Nullam auctor. Fusce urna. Phasellus aliquet pharetra arcu.
-	    					</div>
+	    					</div> 
 	    			</div>					
 	    			
-	    		</div>
-    		</div>
+	    		</div> 
+    		</div> 
     		<!-- end of site_map -->       
   
-     		<!-- begin of extra -->
-    		<div id="extra" style="display:none;">
+     		<!-- begin of extra --> 
+    		<div id="extra" style="display:none;"> 
 	    		<div id="headImage" 
-	    			style="height:207px;border:7px solid #D5D5D5;padding:0px;margin:0px;"><img id="head_image" src="zv/img/zuidvast_inspiratie.jpg" width="736" height="207"></div>
-	    		<div id="content" style="text-align:left; padding-top:10px;">
+
+	    			style="height:207px;border:7px solid #D5D5D5;padding:0px;margin:0px;"><img id="head_image" src="zv/img/zuidvast_inspiratie.jpg" width="736" height="207"></div> 
+	    		<div id="content" style="text-align:left; padding-top:10px;"> 
 	    		
-	    			<div id="leftColumn" style="width:250px; float:left;">
-	    					<img src="zv/img/1.gif" width="250" height="43" alt="What we do" />
-	    					<div style="width:230px; height:16px;" class="bar"></div>
+	    			<div id="leftColumn" style="width:250px; float:left;"> 
+	    					<img src="zv/img/1.gif" width="250" height="43" alt="What we do" /> 
+	    					<div style="width:230px; height:16px;" class="bar"></div> 
 	    					<div style="text-align:left; padding-left:10px; padding-right:20px;"><a class="link" href="/">Zuidvast</a> site map, euismod sed, varius nec, pharetra ac, magna. Integer est. Pellentesque varius imperdiet nulla. Sed nec magna ut nulla pellentesque nonummy.<br><br>Mauris tellus egestas ipsum, nec pellentesque <a class="link" href="/">libero ligula</a> id lorem.
-	    					</div>
-	    			</div>
+	    					</div> 
+	    			</div> 
 	    			
-	    			<div id="leftColumn" style="width:250px; float:left;">
-	    					<img src="zv/img/2.gif" width="250" height="43" alt="What we do" />
-	    					<div style="width:230px; height:16px;" class="bar"></div>
+	    			<div id="leftColumn" style="width:250px; float:left;"> 
+	    					<img src="zv/img/2.gif" width="250" height="43" alt="What we do" /> 
+	    					<div style="width:230px; height:16px;" class="bar"></div> 
 	    					<div style="text-align:left; padding-left:10px; padding-right:20px;">Phasellus iaculis, eros et interdum ultricies, <a class="link" href="/">magna diam</a> posuere ligula, sed volutpat sem purus tempus felis. Praesent vehicula mi sit amet felis. Aliquam pulvinar mattis lorem. Nunc egestas, mauris <a class="link" href="/">Zuidvast</a> ut dapibus tincidunt, mauris tellus egestas ipsum, nec pellentesque libero ligula id lorem.
-	    					</div>
-	    			</div>
+	    					</div> 
+	    			</div> 
 	    			
-	    			<div id="leftColumn" style="width:250px; float:left;">
-	    					<img src="zv/img/3.gif" width="250" height="43" alt="What we do" />
-	    					<div style="width:230px; height:16px;" class="bar"></div>
+	    			<div id="leftColumn" style="width:250px; float:left;"> 
+	    					<img src="zv/img/3.gif" width="250" height="43" alt="What we do" /> 
+	    					<div style="width:230px; height:16px;" class="bar"></div> 
 	    					<div style="text-align:left; padding-left:10px; padding-right:20px;">Donec in risus ac tortor hendrerit varius. Nullam velit felis, eleifend eleifend, lobortis id, semper vulputate, ligula. Nunc sem magna, sollicitudin sit amet, auctor vel, <a class="link" href="/">Zuidvast</a> condimentum id, nunc. Nullam auctor. Fusce urna. Phasellus aliquet pharetra arcu.
-	    					</div>
+	    					</div> 
 	    			</div>					
 	    			
-	    		</div>
-    		</div>
+	    		</div> 
+    		</div> 
     		<!-- end of extra -->     
     		
     		
-    		<BR clear="all">
+    		<BR clear="all"> 
     		
-    		<div id="bottom">
-    		<div class="bottom_inner">
-    			<div class="about"></div>
-    			<div class="sponsored clear" style="float:right;">
-    				<a href="">Voorwaarden</a>&nbsp;|&nbsp;
-    				<a href="">Disclaimer</a>&nbsp;|&nbsp;
-    				<a href="">Over ons</a>&nbsp;|&nbsp;
-    				<a href="">Contact</a>&nbsp;|&nbsp;
-    				Zuidvast 2008 - a <a href="http://zuidvast.com/">Zuidvast</a> Company </div>
+    		<div id="bottom"> 
+    		<div class="bottom_inner"> 
+    			<div class="about"></div> 
+    			<div class="sponsored clear" style="float:right;"> 
+    				<a href="javascript:void(0);" onclick="goToPage('voorwaarden');">Voorwaarden</a>&nbsp;|&nbsp;
+    				<a href="javascript:void(0);" onclick="goToPage('disclaimer');">Disclaimer</a>&nbsp;|&nbsp;
+    				<!--  <a href="" onclick="goToPage('over_ons');">Over ons</a>&nbsp;|&nbsp; -->
+    				<a href="javascript:void(0);" onclick="goToPage('contact');">Contact</a>&nbsp;|&nbsp;
+    				Zuidvast 2008 - a <a href="http://zuidvast.com/">Zuidvast</a> Company </div> 
     		</div>		
     		
-    	</div>
-	</div>
-</center>
-</body>
-</html>
+    	</div> 
+	</div> 
+</center> 
+</body> 
+</html> 
