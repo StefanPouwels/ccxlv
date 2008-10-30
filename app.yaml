@@ -32,6 +32,9 @@ handlers:
 - url: /index2.html
   script: zuidvast.py
 
+- url: /index3.html
+  script: zuidvast3.py
+
   # ccxlv
 - url: /ccxlv/css/
   static_dir: ccxlv/css/

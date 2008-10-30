@@ -1,4 +1,8 @@
 
+var map;
+var gdir;
+var geocoder = null;
+var addressMarker;
 
 function goToPage(pageId)
 {
@@ -16,8 +20,16 @@ function goToPage(pageId)
 	{ 
 		$('head_image_contact').show();
 		$('map_canvas').hide();
-		showAddress($('toAddress').value);
+		// showAddress($('toAddress').value);
 	} 
+}
+
+function sa()
+{
+	var to = $('toAddress').value;  
+	$('head_image_contact').hide();
+	$('map_canvas').show();
+	showAddress(to);
 }
 
 /*
@@ -30,10 +42,11 @@ function showDirections()
     directions.load("from: Gedempte Gracht 25, eindhoven, netherlands to: Willem de Zwijgerstraat 57, eindhoven, netherlands");
 }
 */
+
 function showAddress(address) {
 
-  var map = new GMap2(document.getElementById("map_canvas"));
-  var geocoder = new GClientGeocoder();
+  map = new GMap2(document.getElementById("map_canvas"));
+  geocoder = new GClientGeocoder();
 
   if (geocoder) {
     geocoder.getLatLng(
@@ -52,10 +65,7 @@ function showAddress(address) {
   }
 }
 
-    var map;
-    var gdir;
-    var geocoder = null;
-    var addressMarker;
+
  
     function initialize() {
       if (GBrowserIsCompatible()) {      
@@ -75,9 +85,7 @@ function showAddress(address) {
     	
     	$('directions').innerHTML = '';
     	
-    	$('routeBeschrijving').show();
-		$('head_image_contact').hide();
-		$('map_canvas').show();    	
+   	
     	
         map = new GMap2(document.getElementById("map_canvas"));
         gdir = new GDirections(map, document.getElementById("directions"));
@@ -126,15 +134,17 @@ function showAddress(address) {
  
  	function onGMap2Load()
  	{
- 
- 		
-  		
+ 		$('head_image_contact').hide();
+ 		$('map_canvas').show(); 
  	}
  
-	function onGDirectionsLoad(){ 
+	function onGDirectionsLoad()
+	{ 
       // Use this function to access information about the latest load()
       // results.
-     
+    	$('routeBeschrijving').show();	
+		      
+      // return;
       // e.g.
       // document.getElementById("getStatus").innerHTML = gdir.getStatus().code;
 	  // and yada yada yada...
