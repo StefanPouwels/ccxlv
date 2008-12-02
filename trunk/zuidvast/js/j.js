@@ -29,7 +29,7 @@ function sa()
 	var to = $('toAddress').value;  
 	$('head_image_contact').hide();
 	$('map_canvas').show();
-	showAddress(to);
+	setTimeout(showAddress(to),1000);
 }
 
 /*
@@ -45,6 +45,7 @@ function showDirections()
 
 function showAddress(address) {
 
+  alert('showing address...');
   map = new GMap2(document.getElementById("map_canvas"));
   geocoder = new GClientGeocoder();
 
