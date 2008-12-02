@@ -6,7 +6,7 @@
 <script src="http://maps.google.com/?file=api&amp;v=2.x&amp;key=ABQIAAAAbtz00isjVaQJiRjkUWovcRTd-2r-cxhKOwQvxNgbuA0s6slyZRQ7SI6pt5MnJxiSf4P2_SfjWoi8Mw"
   type="text/javascript"></script> 
 
-<body style="background-image:url(zv/img/zv_bg.gif); background-repeat:no-repeat;"  onload="initialize()" onunload="GUnload()"> 
+<body style="background-image:url(zv/img/zv_bg.gif); background-repeat:no-repeat;" onload="initialize();" onunload="GUnload();"> 
 <center> 
  
 	
@@ -26,6 +26,7 @@
     					<div class="li"><a class="under" id="extra_link" href="#" onclick="goToPage('extra');">Extra</a></div> 
     					<div class="li"><a class="under" id="over_ons_link" href="#" onclick="goToPage('over_ons');">Over ons</a></div> 
     					--> 
+    					<div class="li"><a class="under" id="vacatures_link" href="javascript:void(0);" onclick="goToPage('vacatures');">Vacatures</a></div> 
     					<div class="li"><a class="under" id="contact_link" href="javascript:void(0);" onclick="goToPage('contact');">Contact</a></div> 
     					<div class="li"><a class="currentmenu" id="home_link" href="javascript:void(0);" onclick="goToPage('home');">Home</a></div> 
     					
@@ -114,10 +115,9 @@
     		<!-- begin of contact --> 
     		<div id="contact" style="display:none;">    	
     			
-    			<div id="headImage" style="height:207px;border:7px solid #D5D5D5;padding:0px;margin:0px;"> 
-    				<img id="head_image_contact" src="zv/img/zuidvast_instandhouding.jpg" width="736" height="207">	    		
-	    			<div id="map_canvas" style="width:736px;height:207px;display:none;"></div> 
-	    		</div> 
+    			<div id="headImage" style="height:207px;border:7px solid #D5D5D5;padding:0px;margin:0px;"><img 
+    				id="head_image_contact" src="zv/img/zuidvast_instandhouding.jpg" width="736" height="207"><div 
+    				id="map_canvas" style="width:736px;height:207px;display:none;"></div></div> 
 	    		<div id="content" style="text-align:left; padding-top:10px;"> 
 
 	    			<div id="leftColumn" style="width:250px; float:left;"> 
@@ -136,13 +136,13 @@
 	    					<div style="width:230px; height:16px;" class="bar"></div> 
 	    					<div style="text-align:left; padding-left:10px; padding-right:20px;">
 	    						Voor een routebeschrijving 
-	    						<a href="javascript:void(0);" onclick="showAddress();">naar Zuidvast</a>
+	    						<a href="#" onclick="showAddress();">naar Zuidvast</a>
 	    						 kunt u hier uw adres invullen.<br>
 	    						 <br>
 	    						 <span style="font-size:11px;color:#666666;font-style:italic;">Voorbeeld: Kerkstraat 15, Eindhoven</span>
 	    						 <input id="fromAddress" value="">
 	    						 <input type="hidden" value="Willem de Zwijgerstraat 57, 5616 AD, Eindhoven, Nederland" id="toAddress">
-	    						 <a style="float:right;font-size:11px;" href="javascript:void(0);" onclick="initialize();">Routebeschrijving</a>
+	    						 <a style="float:right;font-size:11px;" href="#" onclick="initialize();">Routebeschrijving</a>
 	    					</div> 
 	    			</div> 	
 	
@@ -174,32 +174,83 @@
     		<!-- end of contact -->       				
  
      		<!-- begin of site_map --> 
-    		<div id="site_map" style="display:none;"> 
+    		<div id="vacatures" style="display:none;"> 
 	    		<div id="headImage" 
 
 	    			style="height:207px;border:7px solid #D5D5D5;padding:0px;margin:0px;"><img id="head_image" src="zv/img/zuidvast_inspannen.jpg" width="736" height="207"></div> 
 	    		<div id="content" style="text-align:left; padding-top:10px;"> 
 	    		
 	    			<div id="leftColumn" style="width:250px; float:left;"> 
-	    					<img src="zv/img/1.gif" width="250" height="43" alt="What we do" /> 
+	    					<img src="zv/img/11.gif" width="250" height="43" alt="Vacatures" /> 
 	    					<div style="width:230px; height:16px;" class="bar"></div> 
-	    					<div style="text-align:left; padding-left:10px; padding-right:20px;"><a class="link" href="/">Zuidvast</a> site map, euismod sed, varius nec, pharetra ac, magna. Integer est. Pellentesque varius imperdiet nulla. Sed nec magna ut nulla pellentesque nonummy.<br><br>Mauris tellus egestas ipsum, nec pellentesque <a class="link" href="/">libero ligula</a> id lorem.
+	    					<div style="text-align:left; padding-left:10px; padding-right:20px;"><a class="link" href="/">
+	    					<a href="#ontwikkelingsmanager">Ontwikkelingsmanager</a><br>
+	    					<a href="#stagiaires">Stagiaires</a><br>	 
+	    					<br>
+	    					Sollicitatieprocedure <br>
+							Voor meer informatie:<br>
+							Zuidvast B.V. <br>
+							<a href="mailto:vacatures@zuidvast.nl">vacatures@zuidvast.nl</a><br>
+							Tel: 040 296 33 66<br>				
 	    					</div> 
 	    			</div> 
 	    			
-	    			<div id="leftColumn" style="width:250px; float:left;"> 
-	    					<img src="zv/img/2.gif" width="250" height="43" alt="What we do" /> 
-	    					<div style="width:230px; height:16px;" class="bar"></div> 
-	    					<div style="text-align:left; padding-left:10px; padding-right:20px;">Phasellus iaculis, eros et interdum ultricies, <a class="link" href="/">magna diam</a> posuere ligula, sed volutpat sem purus tempus felis. Praesent vehicula mi sit amet felis. Aliquam pulvinar mattis lorem. Nunc egestas, mauris <a class="link" href="/">Zuidvast</a> ut dapibus tincidunt, mauris tellus egestas ipsum, nec pellentesque libero ligula id lorem.
+	    			<div id="leftColumn" style="width:500px; float:left;"> 
+	    					<img src="zv/img/0.gif" width="250" height="43" alt="What we do" /> 
+	    					<div style="width:460px; height:16px;" class="bar"></div> 
+	    					<div style="text-align:left; padding-left:10px; padding-right:20px;">
+	    					
+	    					<a name="ontwikkelingsmanager">Ontwikkelingsmanager</a><br>	    					
+	    					<br>
+	    					Werkzaamheden<br>
+	    					Binnen het grote werkgebied van de provincie Brabant ben je verantwoordelijk voor de 
+	    					acquisitie van grond- en vastgoedposities en ben je actief in het uitwerken van concepten 
+	    					voor de benutting van deze posities. Dit alles vanuit een visiegerichte, gebiedsgerichte 
+	    					en rendementsgerichte instelling. Je ontwikkelt en beheert het relatienetwerk en bereid 
+	    					de in- en externe besluitvorming voor als het gaat om nieuwe initiatieven.<br>
+	    					<br>
+	    					Verwachtingen<br>
+	    					Wij zoeken een nieuwe collega die zich o.a. met creativiteit, originaliteit, overtuigingskracht 
+	    					en conceptueel vermogen in gaat zetten voor onze organisatie en zich kan inleven in onze klanten. 
+	    					Voor deze functie zoeken wij iemand met een HBO/ academisch werk- en denkniveau, die een aantal 
+	    					jaren ervaring in een vergelijkbare functie heeft en een opleiding heeft gevolgd in bijv. bouwkunde, 
+	    					sociale geografie, planologie, economische geografie of bedrijfs/bestuurskunde.<br>
+	    					<br>
+	    					Bieden<br>
+	    					Wij bieden een prettige werksfeer binnen een zeer sterk groeiende organisatie en bovendien een 
+	    					boeiende en uitdagende functie met goede kansen voor persoonlijke groei. Je kunt rekenen op een passend salaris.<br>
+	    					<br>
+	    					<a name="stagiaires">Stagiaires</a><br>	    					
+	    					<br>
+	    					Tijdens jouw stage kun je zowel het ontwikkelingsproces als projectmanagement van dichtbij meemaken. 
+	    					Je stage wordt een periode waarin je de diversiteit binnen de projectontwikkeling zult proeven. Je zult 
+	    					tijdens je stageperiode feeling krijgen met het inschatten van de technische en financi&euml;le haalbaarheid 
+	    					van ontwikkelings- en bouwprojecten. Verder ontdek je op welke manieren het hele ontwikkelingsproces, 
+	    					vanaf de verwerving tot aan de oplevering gestuurd wordt.<br>
+	    					<br>
+	    					Als stagiaire draai je mee in meerdere projecten en kom je in contact met verschillende partijen van 
+	    					het ontwikkelingsproces. Wij zorgen ervoor dat je coaching en deskundige begeleiding krijgt van een stagebegeleider.<br>
+	    					<br>
+	    					Wij bieden jou o.a.:
+	    					<ul>
+								<li>een veelzijdige stageplaats</li>
+								<li>alle facetten van projectontwikkeling</li>
+								<li> een grote diversiteit aan werkzaamheden</li>
+								<li>intensieve begeleiding</li>
+							</ul>
+							<br>
+							Er zijn regelmatig stageplaatsen beschikbaar in ons kantoor in Eindhoven.<br>
+							Functie-eisen <br>
+							Jij bent:<br>
+							<ul>
+								<li>tweede of derde jaars HBO- of TU student</li>
+								<li>bezig met een bedrijfskundige, bouwkundige of verwante (bijv. HEAO MER) opleiding</li>
+								<li>Leergierig en gemotiveerd</li>
+								<li>ambitieus om binnen onze organisatie te werken</li>
+							</ul>
 	    					</div> 
 	    			</div>  
-	    			
-	    			<div id="leftColumn" style="width:250px; float:left;"> 
-	    					<img src="zv/img/3.gif" width="250" height="43" alt="What we do" /> 
-	    					<div style="width:230px; height:16px;" class="bar"></div> 
-	    					<div style="text-align:left; padding-left:10px; padding-right:20px;">Donec in risus ac tortor hendrerit varius. Nullam velit felis, eleifend eleifend, lobortis id, semper vulputate, ligula. Nunc sem magna, sollicitudin sit amet, auctor vel, <a class="link" href="/">Zuidvast</a> condimentum id, nunc. Nullam auctor. Fusce urna. Phasellus aliquet pharetra arcu.
-	    					</div> 
-	    			</div>					
+	    				
 	    			
 	    		</div> 
     		</div> 
@@ -240,7 +291,7 @@
 	    					<img src="zv/img/10.gif" width="250" height="43" alt="What we do" /> 
 	    					<div style="width:230px; height:16px;" class="bar"></div> 
 	    					<div style="text-align:left; padding-left:10px; padding-right:20px;">
-								Zuidvast gebruikt cookies en andere technologieën om uw online ervaring te verbeteren.					
+								Zuidvast gebruikt cookies en andere technologie&euml;n om uw online ervaring te verbeteren.					
 							 </div> 
 	    			</div> 
 					
@@ -258,11 +309,20 @@
     				<a href="javascript:void(0);" onclick="goToPage('disclaimer');">Disclaimer</a>&nbsp;|&nbsp;
     				<!--  <a href="" onclick="goToPage('over_ons');">Over ons</a>&nbsp;|&nbsp; -->
     				<a href="javascript:void(0);" onclick="goToPage('contact');">Contact</a>&nbsp;|&nbsp;
+    				<a href="javascript:void(0);" onclick="goToPage('vacatures');">Vacatures</a>&nbsp;|&nbsp;
     				Zuidvast 2008 - a <a href="javascript:void(0);" onclick="goToPage('home');">Zuidvast</a> Company </div> 
     		</div>		
     		
     	</div> 
 	</div> 
 </center> 
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-1205790-3");
+pageTracker._trackPageview();
+</script>
 </body> 
 </html> 

@@ -10,7 +10,9 @@ class MainPage(webapp.RequestHandler):
       if re.search(r'ladyonictprojects.nl', self.request.host):
         target = open("ladyOnIctProjects/index.html", "r").read()
       elif re.search(r'zuidvast.nl', self.request.host):
-        target = open("zuidvast/index.html", "r").read()        
+        target = open("zuidvast/index.html", "r").read()    
+      elif re.search(r'bijna2009.nl', self.request.host):
+        target = open("bijna2009/index.html", "r").read()              
       else:
         target = open("index.html", "r").read()   
    

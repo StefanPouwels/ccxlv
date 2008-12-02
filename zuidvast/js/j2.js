@@ -1,7 +1,7 @@
 
 function goToPage(pageId)
 {
-	var pages = Array('home','contact','disclaimer'); //,'over_ons','site_map','extra','vacatures');
+	var pages = Array('home','contact','disclaimer','vacatures'); //,'over_ons','site_map','extra','vacatures');
 	for(i=0;i<pages.length;i++)
 	{
 		$(pages[i]).style.display = 'none';
@@ -99,21 +99,21 @@ function showAddress(address) {
 
   var address = $('toAddress').value;  
   document.getElementById('head_image_contact').style.display = 'none';
-  document.getElementById('map_canvas').style.display = '';
-
-  map = new GMap2(document.getElementById("map_canvas"));
-  geocoder = new GClientGeocoder();
+  document.getElementById('map_canvas').style.display = '';  
   
-  if (geocoder) {
-    geocoder.getLatLng(
+  var mapSA = new GMap2(document.getElementById("map_canvas"));
+  var geocoderSA = new GClientGeocoder();
+  
+  if (geocoderSA) {
+    geocoderSA.getLatLng(
       address,
       function(point) {
         if (!point) {
           alert(address + " is niet gevonden.");
         } else {
-          map.setCenter(point, 15);
-          var marker = new GMarker(point);
-          map.addOverlay(marker);
+          mapSA.setCenter(point, 15);
+          var markerSA = new GMarker(point);
+          mapSA.addOverlay(markerSA);
           // marker.openInfoWindowHtml(address);
         }
       }
