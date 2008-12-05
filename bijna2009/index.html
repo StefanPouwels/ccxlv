@@ -4,13 +4,192 @@
 <script type="text/javascript" src="2009/js/countdown.js"></script> 
 <script type="text/javascript" src="2009/js/prototype.js"></script> 
 
+<!--[if lt IE 7]>
+<script language="JavaScript">
+function correctPNG() // correctly handle PNG transparency in Win IE 5.5 & 6.
+{
+   var arVersion = navigator.appVersion.split("MSIE")
+   var version = parseFloat(arVersion[1])
+   if ((version >= 5.5) && (document.body.filters)) 
+   {
+      for(var i=0; i<document.images.length; i++)
+      {
+         var img = document.images[i]
+         var imgName = img.src.toUpperCase()
+         if (imgName.substring(imgName.length-3, imgName.length) == "PNG")
+         {
+            var imgID = (img.id) ? "id='" + img.id + "' " : ""
+            var imgClass = (img.className) ? "class='" + img.className + "' " : ""
+            var imgTitle = (img.title) ? "title='" + img.title + "' " : "title='" + img.alt + "' "
+            var imgStyle = "display:inline-block;" + img.style.cssText 
+            if (img.align == "left") imgStyle = "float:left;" + imgStyle
+            if (img.align == "right") imgStyle = "float:right;" + imgStyle
+            if (img.parentElement.href) imgStyle = "cursor:hand;" + imgStyle
+            var strNewHTML = "<span " + imgID + imgClass + imgTitle
+            + " style=\"" + "width:" + img.width + "px; height:" + img.height + "px;" + imgStyle + ";"
+            + "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader"
+            + "(src=\'" + img.src + "\', sizingMethod='scale');\"></span>" 
+            img.outerHTML = strNewHTML
+            i = i-1
+         }
+      }
+   }    
+}
+window.attachEvent("onload", correctPNG);
+</script>
+<![endif]--> 
 
-<body style="background-image:url(2009/img/bg.jpg); "> 
-<center> 
+<style type="text/css">
+
+	body { font: 11px "Courier New", Courier, Sans-Serif; color:#AAAAAA; }
+	td { font: 11px "Courier New", Courier, Sans-Serif; color:#AAAAAA;vertical-align:top; padding-right:5px; }
+	table { margin-right:20px; }
+	.fx {width: 180px;}
+	.dy {border-bottom:1px solid #666666;}
+	.cr {width: 250px;}
+	.pr {float:left;padding-right:5px;}
+	.st {text-decoration: line-through;}
+	.ft {
+		padding-left:5px;
+		padding-right:5px;
+		font-family: Arial;
+		text-align:right;
+		border-top:1px solid #333333;
+		color:#666666;
+		font-size:10px;
+		float:right;
+		display:block;
+		clear:all;
+		margin-top:60px;}
+
+	#footer .footerBox {
+		height:40px;
+		overflow:hidden;
+	}
+
+	#footer .footerBox ins.lb {
+		background:transparent url(2009/img/bg_footerBoxL.png) no-repeat scroll 0 0;
+		display:block;
+		float:left;
+		height:40px;
+		width:21px;
+	}
+
+	#footer .footerBox ins.rb {
+		background:transparent url(2009/img/bg_footerBoxR.png) no-repeat scroll 0 0;
+		display:block;
+		float:left;
+		height:40px;
+		width:21px;
+	}
+
+	#footer {
+		background:transparent url(2009/img/bg_wmodeControl.png) repeat-x scroll 0 0;
+		height:40px;
+		position:relative;
+	}
+	
+	#logo {background-image:url(2009/img/bijna2009_4.jpg)}
+
+</style>
+
+<body style="background-color:#000000; "> 
 
 
-<span id="cd" style="color:white;font-size:25px;font-family:'Arial';font-weight:bold;"></span>
-
+	<div id="logo"
+		style="position:relative;margin:0px;padding:0px;width:500px;height:500px;top:-170px;left:-80px;"
+		>
+		<div id="cd" 
+			style="position:relative;top:224px;left:450px;color:#666666;font-size:10px;"></div>
+	</div>	
+	<br clear="both">
+	
+	<div style="filter:alpha(opacity=75);-moz-opacity:.75;opacity:.75;position:relative;top:-360px;background-color:#212021;float:left;margin:20px;padding:20px;">
+					
+		<div class="pr">
+		
+			<table cellpadding="0" cellspacing="0" border="0">
+				<tr>
+					<td style="padding-right:40px;"><b>Programma</b></td>
+					<td colspan="2" class="dy">Woensdag 31 December</td>
+					</td>
+				</tr>
+				
+				<tr>
+					<td></td>
+					<td>
+						19:30<br/>
+						&nbsp;&nbsp;|<br/>
+					</td>
+					<td class="fx">
+						Arrive & cocktail van Col<br>													
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+						20:00<br/>
+						&nbsp;&nbsp;|<br/>
+						&nbsp;&nbsp;|<br/>
+						&nbsp;&nbsp;|<br/>
+					<td>
+						Brabantse Nachten Zijn Lang<br/>
+						Diner met intermezzo van Col/ Hans/ Ro & Paul						
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+						23:30<br/>
+						&nbsp;&nbsp;|<br/>
+						&nbsp;&nbsp;|<br/>
+					<td class="fx">Illigaal vuurwerk uitrollen + Champagne ploppen</td>
+				</tr>	
+				<tr>
+					<td></td>
+					<td>
+						00:00<br/>
+						&nbsp;&nbsp;|<br/>
+						&nbsp;&nbsp;|<br/>
+						&nbsp;...</td>
+					<td class="fx">Fireworks & gluewine-streetbbq & fires</td>
+				</tr>
+			</table>
+			
+		</div>
+		
+		<div class="pr">
+			
+			<table cellpadding="0" cellspacing="0" border="0">
+				<tr>					
+					<td colspan="2" class="dy">Zaterdag 20 september</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+					Ja, ik kom<br/>
+					Nee, helaas...
+				</tr>				
+			</table>				
+		
+		</div>
+			
+		<br clear="all">
+		
+		<div class="pr" style="padding-top:20px;">
+			
+			<table cellpadding="0" cellspacing="0" border="0">
+				<tr>	
+					<td style="padding-right:40px;"><b>Dresscode&nbsp;</b></td>				
+					<td>
+						op sjiek, lekkere jurk, cocktail dress, Daniel Craig, crevette blanche, tenue de ville...
+					</td>
+				</tr>					
+			</table>				
+		
+		</div>										
+					
+	</div>
 
 </body>
 </html>

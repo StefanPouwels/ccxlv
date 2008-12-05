@@ -67,6 +67,6 @@ function displayCountdown(countdn,cd)
 	var sectext = (secs>1) ? 	' seconden ' : ' seconde ';
 	
 	
-	document.getElementById(cd).innerHTML = 'Nog ' + days + daytext + hours + hourtext + mins + mintext + secs + sectext;
+	$('cd').innerHTML = 'Nog ' + days + daytext + hours + hourtext + mins + mintext + secs + sectext;
 	setTimeout('displayCountdown('+(countdn-1)+',\''+cd+'\');',999);}
 }
