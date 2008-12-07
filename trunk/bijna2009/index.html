@@ -197,19 +197,26 @@ window.attachEvent("onload", correctPNG);
 						<td colspan="2" class="dy">Ben jij erbij?</td>
 					</tr>										
 					<tr>
-						<td>
+						<td><b>
 						<a 
 							style="float:right;font-size:14px;text-decoration:underline;color:#FF3300;" 
 							href="javascript:void(0);" 
-							onclick="">
+							onclick="" id="nee">
 							Nee, helaas...</a>	
 						<a 
 							style="float:left;font-size:14px;text-decoration:underline;color:#00CC33;" 
 							href="javascript:void(0);" 
-							onclick="">
-							Ja, ik kom...</a>
+							onclick="$('nee').style.display='none';$('disclaimer').style.display='';">
+							Ja, ik kom...</a></b>
 												
-												
+							<div style="display:none;display:none;" id="disclaimer">
+							en ga akkoord met de algemene voorwaarden zoals deze te lezen zijn in deze disclaimer... 
+							ik ben zowel hoofdelijk als persoonlijk aansprakelijk voor alle verbintenissen waarvoor ik 
+							zojuist akkoord heb gegeven, zowel financieel als spiritueel. Op dit moment zijn al mijn 
+							lopende rekenenigen volledig verpand aan de organisatie van Bijna2009.com en ter 
+							zekerheidstelling van eventuele algemene schulden stel ik mijn organen, die van mijn partner 
+							en eventuele kinderen beschikbaar...
+							</div>												
 						
 						  <input name="signup" type="hidden">
 						
@@ -219,6 +226,8 @@ window.attachEvent("onload", correctPNG);
 				</table>						
 			</div>			
 	</div>		
+	
+	
 
 
 </center>
