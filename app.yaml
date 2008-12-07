@@ -1,5 +1,5 @@
 application: ccxlv
-version: 5
+version: 6
 runtime: python
 api_version: 1
 
@@ -36,6 +36,9 @@ handlers:
   script: zuidvast3.py
 
   # bijna2009
+- url: /signup.*
+  script: switch.py  
+  
 - url: /2009/css/
   static_dir: bijna2009/css/
 
