@@ -53,11 +53,11 @@ window.attachEvent("onload", correctPNG);
 		padding:20px 10px 20px 20px;
 		margin-right:20px;
 		width:250px;
-		background-image: url(2009/img/form_bg.gif);
-		/*filter:alpha(opacity=55);
+		/*background-image: url(2009/img/form_bg.gif);*/
+		filter:alpha(opacity=55);
 		-moz-opacity:.75;
 		opacity:.75;
-		background-color:#222222;*/		
+		background-color:#333333;		
 	}
 	.st {text-decoration: line-through;}
 	input, textarea {
@@ -262,12 +262,19 @@ window.attachEvent("onload", correctPNG);
 				<table cellpadding="0" cellspacing="0" border="0" width="100%">	
 					<tr>
 						<td colspan="2" class="dy">
-							{% for invite in invites%}
-							<div class="{{ invite.attend }}" style="text-align:{%ifequal invite.attend 'ja'%}left{%else%}right{%endifequal%};">
-							  {{invite.name|escape}}
-							  	{%ifequal invite.attend 'ja'%}komt{%else%}komt niet{%endifequal%}{%if invite.content%}: &quot;{{ invite.content|escape }}&quot;{% endif %}.
-						     </div>
-							 <br/>
+							{% for invite in invites%}							
+								{%ifequal invite.attend 'ja'%}
+								<div class="{{ invite.attend }}" style="padding-top:5px;text-align:left;background:transparent url(2009/img/ja_quote.jpg) no-repeat scroll left top;padding-left:25px;">
+								{%if invite.content%}{{ invite.content|escape }}{% else %}Geen commentaar{% endif %}&quot;<br/>
+								- {{invite.name|escape}}, komt.
+								</div>
+								{% else %}
+								<div class="{{ invite.attend }}" style="padding-top:5px;text-align:right;background:transparent url(2009/img/nee_quote.jpg) no-repeat scroll right top;padding-right:25px;">
+								&quot;{%if invite.content%}{{ invite.content|escape }}{% else %}Geen commentaar{% endif %}<br/>
+								- {{invite.name|escape}}, komt.
+								</div>
+								{%endifequal%}
+								<br/>
 						    {% endfor %}						
 						</td>
 					</tr>
