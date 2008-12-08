@@ -101,7 +101,7 @@ class registerInvites(webapp.RequestHandler):
     invites.put()
     
     cookiename = str(self.request.get('name',0)).lower()   
-    
+    cookiename = cookiename.replace(" ","_")
     
     if cookiename != '':    
         C = Cookie.SmartCookie() 
