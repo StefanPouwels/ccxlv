@@ -67,7 +67,7 @@ handlers:
 
   # other stuff
 - url: /.*
-  script: home.py
+  script: switch.py
   # script: not_found.py
 
 #- url: /(.*\.(gif|png|jpg))
