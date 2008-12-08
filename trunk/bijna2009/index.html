@@ -124,11 +124,11 @@ window.attachEvent("onload", correctPNG);
 				<div>
 					{% if registered %}
 						<b style="font-size:16px;font-family:Arial;">{{ hey }}, tot 31 december!</b>
-							(<a href="/iemand_anders" style="color:#FFFF33;text-decoration:underline;"">ik ben {{ name }} niet</a>)
+							(<a href="/iemand_anders" style="color:#FFFF33;text-decoration:underline;font-size:10px;"">ik ben {{ name }} niet</a>)
 					{% else %}
 					<a href="javascript:void(0);" style="color:#FFFF33;text-decoration:underline;" onclick="$('shizzle').style.display = '';">
 						{% if name %} 
-							{{ hey }}, zin in een feestje?
+							{{ hey }}, zin in een feestje? (<a href="/iemand_anders" style="color:#FFFF33;text-decoration:underline;font-size:10px;"">ik ben {{ name }} niet</a>)
 						{% else %}
 						    Zin in een feestje?
 						{% endif %}
