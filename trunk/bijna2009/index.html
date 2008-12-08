@@ -40,7 +40,6 @@ window.attachEvent("onload", correctPNG);
 <![endif]--> 
 
 <style type="text/css">
-
 	body { font: 11px "Courier New", Courier, Sans-Serif; color:#AAAAAA; margin:0px; padding:0px; }
 	td { font: 11px "Courier New", Courier, Sans-Serif; color:#AAAAAA;vertical-align:top; padding-right:5px; }
 	table { margin-right:20px; }
@@ -54,51 +53,13 @@ window.attachEvent("onload", correctPNG);
 		padding:20px 10px 20px 20px;
 		margin-right:20px;
 		width:250px;
-		filter:alpha(opacity=55);
+		background-image: url(2009/img/form_bg.gif);
+		/*filter:alpha(opacity=55);
 		-moz-opacity:.75;
 		opacity:.75;
-		background-color:#333333;
+		background-color:#222222;*/		
 	}
 	.st {text-decoration: line-through;}
-	.ft {
-		padding-left:5px;
-		padding-right:5px;
-		font-family: Arial;
-		text-align:right;
-		border-top:1px solid #333333;
-		color:#666666;
-		font-size:10px;
-		float:right;
-		display:block;
-		clear:all;
-		margin-top:60px;}
-
-	#footer .footerBox {
-		height:40px;
-		overflow:hidden;
-	}
-
-	#footer .footerBox ins.lb {
-		background:transparent url(2009/img/bg_footerBoxL.png) no-repeat scroll 0 0;
-		display:block;
-		float:left;
-		height:40px;
-		width:21px;
-	}
-
-	#footer .footerBox ins.rb {
-		background:transparent url(2009/img/bg_footerBoxR.png) no-repeat scroll 0 0;
-		display:block;
-		float:left;
-		height:40px;
-		width:21px;
-	}
-
-	#footer {
-		background:transparent url(2009/img/bg_wmodeControl.png) repeat-x scroll 0 0;
-		height:40px;
-		position:relative;
-	}
 	input, textarea {
 		margin:5px;
 		width:200px;
@@ -109,7 +70,8 @@ window.attachEvent("onload", correctPNG);
 		font: 11px "Courier New", Courier, Sans-Serif;
 	}
 	#logo {background-image:url(2009/img/bijna2009_4.jpg)}
-
+	.ja {color:#00CC33;}
+	.nee {color:#FF3300;}
 </style>
 
 <body style="background-color:#000000; "> 
@@ -124,11 +86,12 @@ window.attachEvent("onload", correctPNG);
 				<div>
 					{% if registered %}
 						<b style="font-size:16px;font-family:Arial;">{{ hey }}, tot 31 december!</b>
-							(<a href="/iemand_anders" style="color:#FFFF33;text-decoration:underline;font-size:10px;"">ik ben {{ name }} niet</a>)
+							(<a href="/iemand_anders" style="color:#FFFF33;text-decoration:underline;font-size:10px;font-family:Arial, Helvetica, sans-serif;">ik ben {{ name }} niet</a>)
 					{% else %}
-					<a href="javascript:void(0);" style="color:#FFFF33;text-decoration:underline;" onclick="$('shizzle').style.display = '';">
+					<a id="h" href="javascript:void(0);" style="color:#FFFF33;text-decoration:underline;" 
+						onclick="$('shizzle').style.display = '';$('h').style.textDecoration='';">
 						{% if name %} 
-							{{ hey }}, zin in een feestje? (<a href="/iemand_anders" style="color:#FFFF33;text-decoration:underline;font-size:10px;"">ik ben {{ name }} niet</a>)
+							{{ hey }}, zin in een feestje?
 						{% else %}
 						    Zin in een feestje?
 						{% endif %}
@@ -141,9 +104,9 @@ window.attachEvent("onload", correctPNG);
 	
 		
 	
-	<div style="{% if registered %}{% else %}display:none;{% endif %}width:600px;" id="shizzle">
+	<div style="{% if registered %}{% else %}display:none;{% endif %}width:580px;" id="shizzle">
 	
-			<div class="pr">			
+			<div class="pr" style="margin-bottom:10px;">			
 				<table cellpadding="0" cellspacing="0" border="0" width="100%">					
 					<tr>
 						<td colspan="2" class="dy">
@@ -201,7 +164,7 @@ window.attachEvent("onload", correctPNG);
 			</table>
 			</div>
 	
-			<div class="pr" style="margin-right:0px;margin-bottom:10px;">			
+			<div class="pr" style="margin-right:0px;margin-bottom:10px;float:right;">			
 				<table cellpadding="0" cellspacing="0" border="0" width="100%">	
 					<tr>
 						<td colspan="2" class="dy">
@@ -220,13 +183,13 @@ window.attachEvent("onload", correctPNG);
 					<tr>
 						<td colspan="2" class="dy"  style="width:200px;border:none;">
 						Kosten<br/>
-						Niet meer dan &euro; 80 p.p.</td>
+						Niet meer dan &euro; 75 p.p.</td>
 						</td>
 					</tr>						
 				</table>
 			</div>	
 			
-			<div class="pr" style="margin-right:0px;text-align:left;">			
+			<div class="pr" style="margin-right:0px;text-align:left;float:right;">			
 				<table cellpadding="0" cellspacing="0" border="0" width="100%">	
 					<form action="/signup" method="post" id="signupForm" name="signupForm">	
 					<tr>
@@ -246,15 +209,17 @@ window.attachEvent("onload", correctPNG);
 					{% else %}
 					<tr>
 						<td><b>
-						<a 
-							style="float:right;font-family:Arial;font-size:16px;text-decoration:underline;color:#FF3300;padding-right:0px;margin-right:0px;" 
+						<a
+							class="nee" 
+							style="float:right;font-family:Arial;font-size:16px;text-decoration:underline;padding-right:0px;margin-right:0px;" 
 							href="javascript:void(0);" 
-							onclick="" id="nee">
+							onclick="$('attend').value='nee';$('signupFormDiv').style.display='';$('n').style.display='';$('j').style.display='none';" id="nee">
 							Nee, helaas...</a>	
 						<a 
-							style="float:left;font-family:Arial;font-size:16px;text-decoration:underline;color:#00CC33;" 
+							class="ja"
+							style="float:left;font-family:Arial;font-size:16px;text-decoration:underline;" 
 							href="javascript:void(0);" 
-							onclick="$('nee').style.display='none';$('signupFormDiv').style.display='';">
+							onclick="$('attend').value='ja';$('signupFormDiv').style.display='';$('n').style.display='none';$('j').style.display='';">
 							Ja, ben erbij...</a></b>
 												
 							<div style="display:none;" id="disclaimer">
@@ -266,46 +231,49 @@ window.attachEvent("onload", correctPNG);
 							en eventuele kinderen beschikbaar.<br/>
 						    </div>	
 						    
-						    
-							<div id="signupFormDiv" style="display:none;">
-							      <div>
-							      	<br clear="all"/>
+						    <br clear="all"/>
+							<div id="signupFormDiv" style="display:none;padding:10px;">
+							      	<div id="j" style="display:none;">Gezellig...</div>
+									<div id="n" style="display:none;">Jammer...</div>
 							      	Naam<br/>
 							      	<input name="name" id="name" value="{{name}}">
-							      	<input name="attend" type="hidden" value="ja">
+							      	<input name="attend" id="attend" type="hidden" value="ja">
 							      	Opmerking/ ik neem mee...<br/>
 							      	<textarea 
 							      		style="" 
 							      		name="content" 
 							      		rows="3"></textarea>
-							      </div>							    
 							     <a                          
 							      	href="javascript:document.signupForm.submit();" 
 							      	style="float:right;color:#ad9e29;text-decoration:underline;" 
-							      	onclick="$('nee').style.display='none';$('disclaimer').style.display='';"">
-							      	Verstuur bevestiging
+							      	onclick="$('nee').style.display='none';$('disclaimer').style.display='';">
+							      	Verstuur
 							     </a>							    
 						    </div>
 						</td>					
 					</tr>
-					{% endif %}
-					
-					<tr><td colspan="2">&nbsp;</td></tr>
-					
+					{% endif %}										 			
+					</form>						
+				</table>						
+			</div>		
+
+			{% if registered %}
+			<div class="pr" style="margin-right:0px;text-align:left;clear:left;">			
+				<table cellpadding="0" cellspacing="0" border="0" width="100%">	
 					<tr>
 						<td colspan="2" class="dy">
 							{% for invite in invites%}
-							  {{ invite.name|escape }}, 
-						      {{ invite.content|escape }},
-						      {{ invite.attend }},
-						      {{ invite.date }},
-						      {{ cookie }}<br/>
+							<div class="{{ invite.attend }}" style="text-align:{%ifequal invite.attend 'ja'%}left{%else%}right{%endifequal%};">
+							  {{invite.name|escape}}
+							  	{%ifequal invite.attend 'ja'%}komt{%else%}komt niet{%endifequal%}{%if invite.content%}: &quot;{{ invite.content|escape }}&quot;{% endif %}.
+						     </div>
+							 <br/>
 						    {% endfor %}						
 						</td>
-					</tr>						 			
-					</form>						
-				</table>						
-			</div>			
+					</tr>
+				</table>			
+			</div>
+			{% endif %}
 	</div>		
 	
 	
