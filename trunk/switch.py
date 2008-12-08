@@ -34,18 +34,6 @@ class MainPage(webapp.RequestHandler):
 
     invites_query = Invites.all().order('-date')
     invites = invites_query.fetch(100)
-
-    #if users.get_current_user():
-      #url = users.create_logout_url(self.request.uri)
-      #url_linktext = 'Logout'
-    #else:
-      #url = users.create_login_url(self.request.uri)
-      #url_linktext = 'Login'      
-      
-    #self.request.headers['Cookie'] = 'hallo=ikbengek'
-    
-    #res = Response()
-    #self.response.set_cookie('hallo', 'jijbentgek', max_age=360, path='/', domain='bbijna2009.nl', secure=True)
         
     cookie = self.request.cookies
     x = self.request.path
@@ -55,6 +43,7 @@ class MainPage(webapp.RequestHandler):
     name = uppercasefirstletter + lastletter
       
     #if the cookie is set, show the whole page without the 'zin in...' option...
+	#same goes for a db entry... show the whole page (user could be on another pc e.g. @ home)
     C = Cookie.SmartCookie() 
     
     registered =''
