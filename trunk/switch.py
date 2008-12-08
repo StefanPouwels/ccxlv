@@ -1,17 +1,20 @@
 import cgi
 import os
 import re
+import Cookie
 
 from google.appengine.ext.webapp import template
-from google.appengine.api import users
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
 
-class Greeting(db.Model):
-  author = db.UserProperty()
+class Invites(db.Model):
+  #author = db.UserProperty()
+  name = db.StringProperty()
   content = db.StringProperty(multiline=True)
   date = db.DateTimeProperty(auto_now_add=True)
+  attend = db.StringProperty()
+  cookie = db.StringProperty()
 
 class MainPage(webapp.RequestHandler):
   def get(self):
@@ -29,42 +32,91 @@ class MainPage(webapp.RequestHandler):
     else:
       target = 'index.html'
 
-    greetings_query = Greeting.all().order('-date')
-    greetings = greetings_query.fetch(10)
+    invites_query = Invites.all().order('-date')
+    invites = invites_query.fetch(100)
 
-    if users.get_current_user():
-      url = users.create_logout_url(self.request.uri)
-      url_linktext = 'Logout'
-    else:
-      url = users.create_login_url(self.request.uri)
-      url_linktext = 'Login'
-	  
-    tester = 'werkt dit?'	  
-	  
+    #if users.get_current_user():
+      #url = users.create_logout_url(self.request.uri)
+      #url_linktext = 'Logout'
+    #else:
+      #url = users.create_login_url(self.request.uri)
+      #url_linktext = 'Login'      
+      
+    #self.request.headers['Cookie'] = 'hallo=ikbengek'
+    
+    #res = Response()
+    #self.response.set_cookie('hallo', 'jijbentgek', max_age=360, path='/', domain='bbijna2009.nl', secure=True)
+        
+    cookie = self.request.cookies
+    x = self.request.path
+    firstletter = x[1:2]
+    uppercasefirstletter = firstletter.upper()
+    lastletter = x[2:]
+    name = uppercasefirstletter + lastletter
+      
+    #if the cookie is set, show the whole page without the 'zin in...' option...
+    C = Cookie.SmartCookie() 
+    
+    registered =''
+    if self.request.headers.get('Cookie') and name != 'Iemand_anders':
+      cookiename = name.lower()
+      C.load(self.request.headers.get('Cookie')) 
+      if C.has_key(cookiename):
+           registered = C[cookiename].value
+             
+    hey = 'Hey ' + name
+     
+    if name == 'Iemand_anders':
+        registered = ''
+        name = ''
+        hey = ''
+        
+    if name == 'Inge':
+        hey = 'Hey Schatje'
+    if name == 'Jochem':
+        hey = 'Hey Jonge God'
+      
     template_values = {
-      'greetings': greetings,
-      'url': url,
-      'url_linktext': url_linktext,
-	  'tester': tester,
+      'invites': invites,
+	  'name': name,
+      'registered': registered,
+      'hey': hey,
       }
 
     path = os.path.join(os.path.dirname(__file__), target)
     self.response.out.write(template.render(path, template_values))
 	
-class Guestbook(webapp.RequestHandler):
+class registerInvites(webapp.RequestHandler):
   def post(self):
-    greeting = Greeting()
+    invites = Invites()
 
-    if users.get_current_user():
-      greeting.author = users.get_current_user()
+    #if users.get_current_user():
+      #greeting.author = users.get_current_user()
+      
+    invites.name = self.request.get('name')
+    invites.content = self.request.get('content')
+    invites.attend = self.request.get('attend')
+    invites.date = self.request.get('date')
+    invites.cookie = 'registered'
+    invites.put()
+    
+    cookiename = str(self.request.get('name',0)).lower()   
+    
+    
+    if cookiename != '':    
+        C = Cookie.SmartCookie() 
+        C[cookiename] = cookiename
+        C[cookiename]['path']='/' 
+        C[cookiename]['Max-Age']='2592000' 
+        self.response.headers.add_header('Set-Cookie', C.output(header='') )     
+    
+    self.redirect('/' + self.request.get('name'))
 
-    greeting.content = self.request.get('content')
-    greeting.put()
-    self.redirect('/')
 
 application = webapp.WSGIApplication(
                                      [('/', MainPage),
-                                      ('/signup', Guestbook)],
+                                      ('/signup', registerInvites),                                    
+                                      ('/.*', MainPage)],
                                      debug=True)
 
 def main():

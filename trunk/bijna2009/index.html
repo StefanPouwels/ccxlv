@@ -47,8 +47,18 @@ window.attachEvent("onload", correctPNG);
 	.fx {width: 180px;}
 	.dy {/*border-bottom:1px solid #666666;*/}
 	.cr {width: 250px;}
-	.pr {float:left;position:relative;top:-100px;padding-right:5px;margin-right:20px;width:250px;
-	filter:alpha(opacity=55);-moz-opacity:.75;opacity:.75;background-color:#333333;float:left;padding:20px;}
+	.pr {
+		float:left;
+		position:relative;
+		top:-100px;
+		padding:20px 10px 20px 20px;
+		margin-right:20px;
+		width:250px;
+		filter:alpha(opacity=55);
+		-moz-opacity:.75;
+		opacity:.75;
+		background-color:#333333;
+	}
 	.st {text-decoration: line-through;}
 	.ft {
 		padding-left:5px;
@@ -89,7 +99,15 @@ window.attachEvent("onload", correctPNG);
 		height:40px;
 		position:relative;
 	}
-	
+	input, textarea {
+		margin:5px;
+		width:200px;
+		border:1px solid #cccccc;
+		background-color:#333333;
+		color:white;
+		font-size:11px;
+		font: 11px "Courier New", Courier, Sans-Serif;
+	}
 	#logo {background-image:url(2009/img/bijna2009_4.jpg)}
 
 </style>
@@ -101,21 +119,32 @@ window.attachEvent("onload", correctPNG);
 		<div 
 			id="logo" 
 			style="float:left;position:relative;margin:0px;padding:0px;width:500px;height:500px;text-align:center;">
-			<div style="filter:alpha(opacity=55);-moz-opacity:.55;opacity:.55;position:relative;background-color:#333333;float:left;width:460px;margin:0px;top:320px;padding:20px;">
+			<div style="filter:alpha(opacity=55);-moz-opacity:.55;opacity:.55;position:relative;background-color:#333333;width:460px;margin:0px;top:323px;padding:20px;">
 				<div id="cd"></div>
 				<div>
-					<a href="javascript:void(0);" style="color:#FFFF33;text-decoration:underline;" onclick="$('shizzle').style.display = '';">Zin in een feestje?</a>
+					{% if registered %}
+						<b style="font-size:16px;font-family:Arial;">{{ hey }}, tot 31 december!</b>
+							(<a href="/iemand_anders" style="color:#FFFF33;text-decoration:underline;"">ik ben {{ name }} niet</a>)
+					{% else %}
+					<a href="javascript:void(0);" style="color:#FFFF33;text-decoration:underline;" onclick="$('shizzle').style.display = '';">
+						{% if name %} 
+							{{ hey }}, zin in een feestje?
+						{% else %}
+						    Zin in een feestje?
+						{% endif %}
+					{% endif %}
+					</a>
 				</div>
 			</div>
 		</div>			
 	</div>	
 	
-	<br clear="all"/>	
+		
 	
-	<div style="display:none;width:600px;" id="shizzle">
+	<div style="{% if registered %}{% else %}display:none;{% endif %}width:600px;" id="shizzle">
 	
 			<div class="pr">			
-				<table cellpadding="0" cellspacing="0" border="0">					
+				<table cellpadding="0" cellspacing="0" border="0" width="100%">					
 					<tr>
 						<td colspan="2" class="dy">
 							Programma 31-12<br/>
@@ -173,63 +202,135 @@ window.attachEvent("onload", correctPNG);
 			</div>
 	
 			<div class="pr" style="margin-right:0px;margin-bottom:10px;">			
-				<table cellpadding="0" cellspacing="0" border="0">
+				<table cellpadding="0" cellspacing="0" border="0" width="100%">	
 					<tr>
 						<td colspan="2" class="dy">
 							Locatie<br/>
 							Willem de Zwijgerstraat 57, Eindhoven						
 						</td>
 					</tr>			
-					<tr><td colspan="4">&nbsp;</td></tr>
+					<tr><td colspan="2">&nbsp;</td></tr>
 					<tr>
 						<td colspan="2" class="dy"  style="width:200px;border:none;">
 						Dresscode<br/>
 						op sjiek, lekkere jurk, cocktail dress, Daniel Craig, crevette blanche, tenue de ville...</td>
 						</td>
 					</tr>	
+					<tr><td colspan="2">&nbsp;</td></tr>
+					<tr>
+						<td colspan="2" class="dy"  style="width:200px;border:none;">
+						Kosten<br/>
+						Niet meer dan &euro; 80 p.p.</td>
+						</td>
+					</tr>						
 				</table>
 			</div>	
 			
 			<div class="pr" style="margin-right:0px;text-align:left;">			
 				<table cellpadding="0" cellspacing="0" border="0" width="100%">	
-					<form action="/signup" method="post">	
+					<form action="/signup" method="post" id="signupForm" name="signupForm">	
 					<tr>
 						<td colspan="2" class="dy">Ben jij erbij?</td>
-					</tr>										
+					</tr>					
+					{% if registered %}
+					<tr>
+						<td>
+						Ja, ik ben erbij en ga akkoord met de algemene voorwaarden zoals deze te lezen zijn in deze disclaimer. 
+							Ik ben zowel hoofdelijk als persoonlijk aansprakelijk voor alle verbintenissen waarvoor ik 
+							zojuist akkoord heb gegeven, zowel financi&euml;el als spiritueel. Op dit moment zijn al mijn 
+							lopende rekenenigen volledig verpand aan de organisatie van Bijna2009.com en ter 
+							zekerheidstelling van eventuele algemene schulden stel ik mijn organen, die van mijn partner 
+							en eventuele kinderen beschikbaar.
+						</td>
+					</td>
+					{% else %}
 					<tr>
 						<td><b>
 						<a 
-							style="float:right;font-size:14px;text-decoration:underline;color:#FF3300;" 
+							style="float:right;font-family:Arial;font-size:16px;text-decoration:underline;color:#FF3300;padding-right:0px;margin-right:0px;" 
 							href="javascript:void(0);" 
 							onclick="" id="nee">
 							Nee, helaas...</a>	
 						<a 
-							style="float:left;font-size:14px;text-decoration:underline;color:#00CC33;" 
+							style="float:left;font-family:Arial;font-size:16px;text-decoration:underline;color:#00CC33;" 
 							href="javascript:void(0);" 
-							onclick="$('nee').style.display='none';$('disclaimer').style.display='';">
-							Ja, ik kom...</a></b>
+							onclick="$('nee').style.display='none';$('signupFormDiv').style.display='';">
+							Ja, ben erbij...</a></b>
 												
-							<div style="display:none;display:none;" id="disclaimer">
+							<div style="display:none;" id="disclaimer">
 							en ga akkoord met de algemene voorwaarden zoals deze te lezen zijn in deze disclaimer. 
 							Ik ben zowel hoofdelijk als persoonlijk aansprakelijk voor alle verbintenissen waarvoor ik 
 							zojuist akkoord heb gegeven, zowel financi&euml;el als spiritueel. Op dit moment zijn al mijn 
 							lopende rekenenigen volledig verpand aan de organisatie van Bijna2009.com en ter 
 							zekerheidstelling van eventuele algemene schulden stel ik mijn organen, die van mijn partner 
 							en eventuele kinderen beschikbaar.<br/>
-							<br/>
-							
-							</div>												
-						
-						  <input name="signup" type="hidden">
-						
+						    </div>	
+						    
+						    
+							<div id="signupFormDiv" style="display:none;">
+							      <div>
+							      	<br clear="all"/>
+							      	Naam<br/>
+							      	<input name="name" id="name" value="{{name}}">
+							      	<input name="attend" type="hidden" value="ja">
+							      	Opmerking of iets anders...<br/>
+							      	<textarea 
+							      		style="" 
+							      		name="content" 
+							      		rows="3"></textarea>
+							      </div>							    
+							     <a                          
+							      	href="javascript:document.signupForm.submit();" 
+							      	style="float:right;color:#ad9e29;text-decoration:underline;" 
+							      	onclick="$('nee').style.display='none';$('disclaimer').style.display='';"">
+							      	Verstuur bevestiging
+							     </a>							    
+						    </div>
 						</td>					
-					</tr>		
+					</tr>
+					{% endif %}
+					
+					<tr><td colspan="2">&nbsp;</td></tr>
+					
+					<tr>
+						<td colspan="2" class="dy">
+							{% for invite in invites%}
+							  {{ invite.name|escape }}, 
+						      {{ invite.content|escape }},
+						      {{ invite.attend }},
+						      {{ invite.date }},
+						      {{ cookie }}<br/>
+						    {% endfor %}						
+						</td>
+					</tr>						 			
 					</form>						
 				</table>						
 			</div>			
 	</div>		
 	
 	
+	<!-- 
+	
+ 	{% for greeting in greetings %}
+      {% if greeting.author %}
+        <b>{{ greeting.author.nickname }}</b> wrote:
+      {% else %}
+       An anonymous person wrote:
+      {% endif %}
+      <blockquote>{{ greeting.content|escape }}</blockquote>
+    {% endfor %}
+
+    <form action="/sign" method="post">
+      <div><textarea name="content" rows="3" cols="60"></textarea></div>
+      <div><input type="submit" value="Sign Guestbook"></div>
+    </form>
+	
+	<br/>
+	hier moet dus test komen: {{ tester }}<br/>
+
+    <a href="{{ url }}">{{ url_linktext }}</a>	
+	
+	 -->
 
 
 </center>
