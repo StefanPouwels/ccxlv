@@ -14,6 +14,8 @@ def getNick(name):
         nick = 'Schatje'
     if name == 'Jochem':
       nick = 'Jonge God'
+    if name == 'Stefan':
+      nick = 'God'      
     if name == 'sjaak':
         nick = 'Hitsige Harry'
     return nick
@@ -72,7 +74,7 @@ class MainPage(webapp.RequestHandler):
         if self.request.headers.get('Cookie'):
             ##### load all cookies
             C.load(self.request.headers.get('Cookie'))            
-            registered = 'yep'
+            registered = 'yep1'
             
             ##### Iterate over the cookies, create a hey
             currentInvitees = C.keys()
@@ -92,15 +94,16 @@ class MainPage(webapp.RequestHandler):
         if self.request.headers.get('Cookie'):
           C.load(self.request.headers.get('Cookie'))
           if C.has_key(name):
-               registered = C[name].value          
+               registered = C[name].value    
           else: ##### Maar geen cookie (user zit thuis/ op zijn werk)
             ##### Check db...
             r = db.GqlQuery("SELECT * FROM Invites WHERE name = :1",name)
             results = r.fetch(5)
             for p in results:
-                registered = 'yep'
-                      
-        hey = 'Hey ' + getNick(name)   
+                registered = 'yep2'
+        
+        offspring = hasOffspring(name)              
+        hey = 'Hey ' + getNick(name)
 
     template_values = {
       'invites': invites,
