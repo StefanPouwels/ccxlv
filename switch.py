@@ -112,7 +112,7 @@ class MainPage(webapp.RequestHandler):
       target = 'index.html'
 
     ##### getting the inviteelist and comments
-    invites_query = Invites.all().order('-date')
+    invites_query = Invites.all().order('date')
     invites = invites_query.fetch(100)
  
     ##### getting the queryparamter
