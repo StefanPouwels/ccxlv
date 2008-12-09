@@ -40,8 +40,8 @@ window.attachEvent("onload", correctPNG);
 <![endif]--> 
 
 <style type="text/css">
-	body { font: 11px "Courier New", Courier, Sans-Serif; color:#AAAAAA; margin:0px; padding:0px; }
-	td { font: 11px "Courier New", Courier, Sans-Serif; color:#AAAAAA;vertical-align:top; padding-right:5px; }
+	body { font: 11px 'Courier New', Courier, Sans-Serif; color:#AAAAAA; margin:0px; padding:0px; }
+	td { font: 11px 'Courier New', Courier, Sans-Serif; color:#AAAAAA;vertical-align:top; padding-right:5px; }
 	table { margin-right:20px; }
 	.fx {width: 180px;}
 	.dy {/*border-bottom:1px solid #666666;*/}
@@ -77,26 +77,61 @@ window.attachEvent("onload", correctPNG);
 <body style="background-color:#000000; "> 
 
 <center>
+
+	<div style="background-color:#333333;">
+	{% for invitee in currentInvitees %}
+		{{invitee}}
+	{% endfor %}	
+	</div>
+
 	<div style="width:500px;">	
 		<div 
 			id="logo" 
 			style="float:left;position:relative;margin:0px;padding:0px;width:500px;height:500px;text-align:center;">
-			<div style="filter:alpha(opacity=55);-moz-opacity:.55;opacity:.55;position:relative;background-color:#333333;width:460px;margin:0px;top:323px;padding:20px;">
+			<div id="diffie" 
+				style="filter:alpha(opacity=55);-moz-opacity:.55;opacity:.55;position:relative;background-color:#333333;width:460px;margin:0px;top:323px;padding:20px;">
 				<div id="cd"></div>
 				<div>
 					{% if registered %}
-						<b style="font-size:16px;font-family:Arial;">{{ hey }}, tot 31 december!</b>
-							(<a href="/iemand_anders" style="color:#FFFF33;text-decoration:underline;font-size:10px;font-family:Arial, Helvetica, sans-serif;">ik ben {{ name }} niet</a>)
+						<span style="font-size:11px;font-family:'Courier new',Arial;color:#FFFF33;">{{ hey }}, tot 31 december!</span>							
 					{% else %}
-					<a id="h" href="javascript:void(0);" style="color:#FFFF33;text-decoration:underline;" 
-						onclick="$('shizzle').style.display = '';$('h').style.textDecoration='';">
 						{% if name %} 
-							{{ hey }}, zin in een feestje?
+							<a id="h" href="javascript:void(0);" style="color:#FFFF33;text-decoration:underline;" 
+								onclick="$('shizzle').style.display = '';$('h').style.textDecoration='';">
+									{{ hey }}, zin in een feestje?</a>
 						{% else %}
-						    Zin in een feestje?
+							<a href="javascript:$('onbekend').display='';">
+						    Zin in een feestje?</a>
 						{% endif %}
 					{% endif %}
 					</a>
+					{% if name %} 
+						(<a 
+							href="javascript:void(0);" 
+							onclick=";$('onbekend').style.display = '';$('diffie').style.padding='10px 10px 0px 10px'" 
+							style="color:#FFFF33;text-decoration:underline;font-size:10px;font-family:Arial, Helvetica, sans-serif;"
+							{% ifequal inviteeAmount 1 %}
+								>ik ben {{ name }} niet</a>)
+							{% else %}
+								>ik sta er niet tussen</a>)
+							{% endifequal%}
+					{% endif %}
+					<div id="onbekend" style="display:none;">
+						<form 
+							action="" 
+							method="get" 
+							id="redirect" 
+							name="redirect" 
+							onsubmit="location.href='/' + $('redirectName').value;return false;">	
+							Wat is je naam?
+							<input name="redirectName" id="redirectName" value="">
+							<a 
+								style="color:#FFFF33;text-decoration:underline;width:125px;"
+								href="javascript:void(0);"
+								onclick="location.href='/' + $('redirectName').value;">Go!</a>
+						</form>
+					</div>
+					
 				</div>
 			</div>
 		</div>			
@@ -185,7 +220,14 @@ window.attachEvent("onload", correctPNG);
 						Kosten<br/>
 						Niet meer dan &euro; 75 p.p.</td>
 						</td>
-					</tr>						
+					</tr>	
+					<tr><td colspan="2">&nbsp;</td></tr>
+					<tr>
+						<td colspan="2" class="dy"  style="width:200px;border:none;">
+						Vragen<br/>
+						<a href="mailto:hetis@bijna2009.com" style="color:#FFFF33;">HetIs@Bijna2009.com</td>
+						</td>
+					</tr>	
 				</table>
 			</div>	
 			
@@ -238,7 +280,7 @@ window.attachEvent("onload", correctPNG);
 							      	Naam<br/>
 							      	<input name="name" id="name" value="{{name}}">
 							      	<input name="attend" id="attend" type="hidden" value="ja">
-							      	Opmerking/ ik neem mee...<br/>
+							      	Opmerking, wat te melden, enthousiast?<br/>
 							      	<textarea 
 							      		style="" 
 							      		name="content" 
@@ -264,14 +306,14 @@ window.attachEvent("onload", correctPNG);
 						<td colspan="2" class="dy">
 							{% for invite in invites%}							
 								{%ifequal invite.attend 'ja'%}
-								<div class="{{ invite.attend }}" style="padding-top:5px;text-align:left;background:transparent url(2009/img/ja_quote.jpg) no-repeat scroll left top;padding-left:25px;">
+								<div class="{{ invite.attend }}" style="padding-top:5px;text-align:left;background:transparent url(2009/img/ja_quote.gif) no-repeat scroll left top;padding-left:25px;">
 								{%if invite.content%}{{ invite.content|escape }}{% else %}Geen commentaar{% endif %}&quot;<br/>
 								- {{invite.name|escape}}, komt.
 								</div>
 								{% else %}
-								<div class="{{ invite.attend }}" style="padding-top:5px;text-align:right;background:transparent url(2009/img/nee_quote.jpg) no-repeat scroll right top;padding-right:25px;">
+								<div class="{{ invite.attend }}" style="padding-top:5px;text-align:right;background:transparent url(2009/img/nee_quote.gif) no-repeat scroll right top;padding-right:25px;">
 								&quot;{%if invite.content%}{{ invite.content|escape }}{% else %}Geen commentaar{% endif %}<br/>
-								- {{invite.name|escape}}, komt.
+								- {{invite.name|escape}}, komt niet.
 								</div>
 								{%endifequal%}
 								<br/>
