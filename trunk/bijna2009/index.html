@@ -77,12 +77,14 @@ window.attachEvent("onload", correctPNG);
 <body style="background-color:#000000; "> 
 
 <center>
-
+	
+	<!-- 
 	<div style="background-color:#333333;">
 	{% for invitee in currentInvitees %}
 		{{invitee}}
 	{% endfor %}	
 	</div>
+	 -->
 	<form 
 		style="padding-top:0px;maring-top:0px;"
 		action="" 
@@ -168,9 +170,9 @@ window.attachEvent("onload", correctPNG);
 							&nbsp;&nbsp;|<br/>
 						<td>
 							<br/>
-							Brabantse Nachten Zijn Lang<br/>
-							Diner met intermezzo van<br/>
-							Col/ Hans/ Ro & Paul						
+							Brabantse Nachten Zijn Lang,
+							Diner met intermezzo van 
+							Col, Hans & Ro
 						</td>
 					</tr> 
 					<tr>
@@ -181,8 +183,7 @@ window.attachEvent("onload", correctPNG);
 							&nbsp;&nbsp;|<br/>
 						<td class="fx">
 							<br/>
-							Illigaal vuurwerk<br/>
-							uitrollen + Champagne<br/>
+							Illigaal vuurwerk uitrollen, Champagne<br/>
 							ploppen</td>
 					</tr>	
 					<tr>
@@ -201,52 +202,48 @@ window.attachEvent("onload", correctPNG);
 			<div class="pr" style="margin-right:0px;margin-bottom:10px;float:right;">			
 				<table cellpadding="0" cellspacing="0" border="0" width="100%">	
 					<tr>
-						<td colspan="2" class="dy">
+						<td class="dy">
 							Locatie<br/>
 							Willem de Zwijgerstraat 57, Eindhoven						
 						</td>
 					</tr>			
-					<tr><td colspan="2">&nbsp;</td></tr>
+					<tr><td>&nbsp;</td></tr>
 					<tr>
-						<td colspan="2" class="dy"  style="width:200px;border:none;">
+						<td class="dy"  style="width:200px;border:none;">
 						Dresscode<br/>
 						op sjiek, lekkere jurk, cocktail dress, Daniel Craig, crevette blanche, tenue de ville...</td>
-						</td>
 					</tr>	
-					<tr><td colspan="2">&nbsp;</td></tr>
+					<tr><td>&nbsp;</td></tr>
 					<tr>
-						<td colspan="2" class="dy"  style="width:200px;border:none;">
+						<td class="dy"  style="width:200px;border:none;">
 						Kosten<br/>
 						Niet meer dan &euro; 75 p.p.</td>
-						</td>
 					</tr>	
-					<tr><td colspan="2">&nbsp;</td></tr>
+					<tr><td>&nbsp;</td></tr>
 					<tr>
-						<td colspan="2" class="dy"  style="width:200px;border:none;">
+						<td class="dy"  style="width:200px;border:none;">
 						Vragen<br/>
-						<a href="mailto:hetis@bijna2009.com" style="color:#FFFF33;">HetIs@Bijna2009.com</td>
-						</td>
+						Email <a href="mailto:hetis@bijna2009.com" style="color:#FFFF33;">HetIs@Bijna2009.com</td>
 					</tr>	
 					{% ifequal kids 1%}
-					<tr><td colspan="2">&nbsp;</td></tr>
+					<tr><td>&nbsp;</td></tr>
 					<tr>
-						<td colspan="2" class="dy"  style="width:200px;border:none;">
+						<td class="dy"  style="width:200px;border:none;">
 						Kids?<br/>
-						Er zullen meerdere honymoon suites beschikbaar zijn voor uw eventuele 
-						nakomelingen. Zuidvast Babyopvang B.V. zal de volledige aansprakelijkheid op zich nemen.</td>
-						</td>
+						Zuidvast Babyopvang B.V. zal meerdere honeymoon suites beschikbaar hebben voor uw eventuele 
+						nakomelingen en zal de volledige aansprakelijkheid en verzorging op zich nemen.</td>
 					</tr>					
 					{% endifequal %}
 				</table>
 			</div>	
 			
-			<div class="pr" style="margin-right:0px;text-align:left;float:right;">			
+			<div class="pr" style="margin-right:0px;text-align:left;float:right;clear:right;">			
 				<table cellpadding="0" cellspacing="0" border="0" width="100%">	
 					<form action="/signup" method="post" id="signupForm" name="signupForm">	
 					<tr>
-						<td colspan="2" class="dy">Ben jij erbij?</td>
+						<tdclass="dy">Ben jij erbij?</td>
 					</tr>					
-					{% if registered %}
+					{% ifequal registered 'ja' %}
 					<tr>
 						<td>
 						Ja, ik ben erbij en ga akkoord met de algemene voorwaarden zoals deze te lezen zijn in deze disclaimer. 
@@ -258,6 +255,14 @@ window.attachEvent("onload", correctPNG);
 						</td>
 					</td>
 					{% else %}
+					<tr>
+						<td>
+						Nee, ben er niet bij...
+						</td>
+					</td>
+					{% endifequal %}
+					{% if registered %}
+					{% else %}		
 					<tr>
 						<td><b>
 						<a
@@ -317,12 +322,12 @@ window.attachEvent("onload", correctPNG);
 								{%ifequal invite.attend 'ja'%}
 								<div class="{{ invite.attend }}" style="padding-top:5px;text-align:left;background:transparent url(2009/img/ja_quote.gif) no-repeat scroll left top;padding-left:25px;">
 								{%if invite.content%}{{ invite.content|escape }}{% else %}Geen commentaar{% endif %}&quot;<br/>
-								- {{invite.name|escape}}, komt.
+								- {{invite.name|escape}}, is er bij.
 								</div>
 								{% else %}
 								<div class="{{ invite.attend }}" style="padding-top:5px;text-align:right;background:transparent url(2009/img/nee_quote.gif) no-repeat scroll right top;padding-right:25px;">
 								&quot;{%if invite.content%}{{ invite.content|escape }}{% else %}Geen commentaar{% endif %}<br/>
-								- {{invite.name|escape}}, komt niet.
+								- {{invite.name|escape}}, is er niet bij.
 								</div>
 								{%endifequal%}
 								<br/>
