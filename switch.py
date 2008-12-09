@@ -42,19 +42,35 @@ def getNick(name):
       nick = 'jonge God'	     
     if name == 'ro':
       nick = 'Ome Ro'
-    if name == 'Simone':
+    if name == 'milf':
       nick = 'jonge Godin'	     
     if name == 'Kas':
-      nick = 'jonge Godin'	     
-	  	     
-
-
-
-
-	     	  
-
-
-    return nick
+      nick = 'jonge God'	     
+    if name == 'Miranda':
+      nick = 'milf'	     
+    if name == 'Jochem':
+      nick = 'jonge God'	
+    if name == 'Paul':
+      nick = 'Bef-oh-matic'	
+    if name == 'Ank':
+      nick = 'jonge Godin'	
+    if name == 'Car':
+      nick = 'alchoholist'	
+    if name == 'Gijs':
+      nick = 'Vader & Moeder Gizo'	  
+    if name == 'Mark':
+      nick = 'hellimonder'	  
+    if name == 'Kim':
+      nick = 'jonge Godin'	  
+    if name == 'MenT':
+      nick = 'Mark & Tanja'	  
+    if name == 'Harry':
+      nick = 'Harry'	  
+    if name == 'Nens':
+      nick = 'Nens'	  
+    if name == 'Juud':
+      nick = 'Drankorgel'
+	return nick
 
 def hasOffspring(name):
     hasOffspring = 0
