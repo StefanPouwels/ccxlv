@@ -72,6 +72,12 @@ window.attachEvent("onload", correctPNG);
 	#logo {background-image:url(2009/img/bijna2009_4.jpg)}
 	.ja {color:#00CC33;}
 	.nee {color:#FF3300;}
+	.yellowlink {
+		color:#FFFF33;
+		text-decoration:underline;
+		font-size:10px;
+		font-family:Arial, Helvetica, sans-serif;
+	}
 </style>
 
 <body style="background-color:#000000; "> 
@@ -104,11 +110,13 @@ window.attachEvent("onload", correctPNG);
 						<span style="font-size:11px;font-family:'Courier new',Arial;color:#FFFF33;">{{ hey }}</span>							
 					{% else %}
 						{% if name %} 
-							<a id="h" href="javascript:void(0);" style="color:#FFFF33;text-decoration:underline;" 
+							<a id="h" href="javascript:void(0);" class="yellowlink" 
 								onclick="$('shizzle').style.display = '';$('h').style.textDecoration='';">
 									{{ hey }}</a>
 						{% else %}
-							<a href="javascript:$('onbekend').display='';">
+							<a href="javascript:$('onbekend').display='';"
+							class="yellowlink"
+							>
 						    Zin in een feestje?</a>
 						{% endif %}
 					{% endif %}
@@ -117,7 +125,7 @@ window.attachEvent("onload", correctPNG);
 						(<a 
 							href="javascript:void(0);" 
 							onclick=";$('onbekend').style.display = '';$('diffie').style.padding='10px 10px 0px 10px'" 
-							style="color:#FFFF33;text-decoration:underline;font-size:10px;font-family:Arial, Helvetica, sans-serif;"
+							class="yellowlink"
 							{% ifequal inviteeAmount 1 %}
 								>ik ben {{ name }} niet</a>)
 							{% else %}
@@ -128,7 +136,7 @@ window.attachEvent("onload", correctPNG);
 							Wat is je naam?
 							<input name="redirectName" id="redirectName" value="" style="width:125px;">
 							<a 
-								style="color:#FFFF33;text-decoration:underline;"
+								class="yellowlink"
 								href="javascript:void(0);"
 								onclick="location.href='/' + $('redirectName').value;">Go!</a>						
 					</div>
