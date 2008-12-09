@@ -72,11 +72,13 @@ window.attachEvent("onload", correctPNG);
 	#logo {background-image:url(2009/img/bijna2009_4.jpg)}
 	.ja {color:#00CC33;}
 	.nee {color:#FF3300;}
+	a:hover, a.yellowlink {text-decoration:underline;color:#FFFF33;}	
 	.yellowlink {
 		color:#FFFF33;
 		text-decoration:underline;
 		font-size:10px;
 		font-family:Arial, Helvetica, sans-serif;
+		font:11px "Courier New", Courier, Sans-Serif;
 	}
 </style>
 
@@ -114,7 +116,8 @@ window.attachEvent("onload", correctPNG);
 								onclick="$('shizzle').style.display = '';$('h').style.textDecoration='';">
 									{{ hey }}</a>
 						{% else %}
-							<a href="javascript:$('onbekend').display='';"
+							<a href="javascript:void(0);" 
+							onclick=";$('onbekend').style.display = '';$('diffie').style.padding='10px 10px 0px 10px'"
 							class="yellowlink"
 							>
 						    Zin in een feestje?</a>
@@ -125,7 +128,7 @@ window.attachEvent("onload", correctPNG);
 						(<a 
 							href="javascript:void(0);" 
 							onclick=";$('onbekend').style.display = '';$('diffie').style.padding='10px 10px 0px 10px'" 
-							class="yellowlink"
+							style="font-size:10px;"
 							{% ifequal inviteeAmount 1 %}
 								>ik ben {{ name }} niet</a>)
 							{% else %}
@@ -231,7 +234,7 @@ window.attachEvent("onload", correctPNG);
 					<tr>
 						<td class="dy"  style="width:200px;border:none;">
 						Vragen<br/>
-						Email <a href="mailto:hetis@bijna2009.com" style="color:#FFFF33;">HetIs@Bijna2009.com</td>
+						Email <a href="mailto:hetis@bijna2009.com" class="yellowlink">HetIs@Bijna2009.com</td>
 					</tr>	
 					{% ifequal kids 1%}
 					<tr><td>&nbsp;</td></tr>
@@ -249,7 +252,7 @@ window.attachEvent("onload", correctPNG);
 				<table cellpadding="0" cellspacing="0" border="0" width="100%">	
 					<form action="/signup" method="post" id="signupForm" name="signupForm">	
 					<tr>
-						<tdclass="dy">Ben jij erbij?</td>
+						<td class="dy">Ben jij erbij?</td>
 					</tr>					
 					{% ifequal registered 'ja' %}
 					<tr>
@@ -262,7 +265,8 @@ window.attachEvent("onload", correctPNG);
 							en eventuele kinderen beschikbaar.
 						</td>
 					</td>
-					{% else %}
+					{% endifequal %}
+					{% ifequal registered 'nee' %}
 					<tr>
 						<td>
 						Nee, ben er niet bij...
@@ -297,8 +301,10 @@ window.attachEvent("onload", correctPNG);
 						    
 						    <br clear="all"/>
 							<div id="signupFormDiv" style="display:none;padding:10px;">
-							      	<div id="j" style="display:none;">Gezellig...</div>
-									<div id="n" style="display:none;">Jammer...</div>
+							      	<div id="j" style="display:none;">Gezellig... Laat het ons weten en vul onderstaan formulier in aub.</div>
+									<div id="n" style="display:none;">Jammer... Laat het ons weten en vul onderstaan formulier in aub.</div>
+									<br/>
+									<br/>
 							      	Naam<br/>
 							      	<input name="name" id="name" value="{{name}}">
 									Email<br/>
@@ -329,7 +335,8 @@ window.attachEvent("onload", correctPNG);
 			</div>		
 
 			{% if registered %}
-			<div class="pr" style="margin-right:0px;text-align:left;clear:left;">			
+			<div class="pr" style="margin-right:0px;text-align:left;clear:left;">
+			<a name="comments"></a>
 				<table cellpadding="0" cellspacing="0" border="0" width="100%">	
 					<tr>
 						<td colspan="2" class="dy">
@@ -349,7 +356,8 @@ window.attachEvent("onload", correctPNG);
 						    {% endfor %}						
 						</td>
 					</tr>
-				</table>			
+				</table>	
+						
 			</div>
 			{% endif %}
 	</div>		
