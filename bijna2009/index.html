@@ -328,12 +328,12 @@ window.attachEvent("onload", correctPNG);
 							{% for invite in invites%}							
 								{%ifequal invite.attend 'ja'%}
 								<div class="{{ invite.attend }}" style="padding-top:5px;text-align:left;background:transparent url(2009/img/ja_quote.gif) no-repeat scroll left top;padding-left:25px;">
-								{%if invite.content%}{{ invite.content|escape }}{% else %}Geen commentaar{% endif %}&quot;<br/>
+								{%if invite.trickquestion%}{{ invite.trickquestion|escape }}{% else %}Geen commentaar{% endif %}&quot;<br/>
 								- {{invite.name|escape}}, is er bij.
 								</div>
 								{% else %}
 								<div class="{{ invite.attend }}" style="padding-top:5px;text-align:right;background:transparent url(2009/img/nee_quote.gif) no-repeat scroll right top;padding-right:25px;">
-								&quot;{%if invite.content%}{{ invite.content|escape }}{% else %}Geen commentaar{% endif %}<br/>
+								&quot;{%if invite.trickquestion%}{{ invite.trickquestion|escape }}{% else %}Geen commentaar{% endif %}<br/>
 								- {{invite.name|escape}}, is er niet bij.
 								</div>
 								{%endifequal%}
