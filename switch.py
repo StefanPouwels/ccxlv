@@ -11,57 +11,57 @@ from google.appengine.ext import db
 def getNick(name):
     nick = name
     if name == 'Col':
-        nick = 'jonge God Joris'
+        nick = 'Jonge God Joris'
     if name == 'Maartje':
         nick = 'lekker ding'		
     if name == 'Mitch':
         nick = 'Master Disc'
-    if name == 'Viv':
+    if name == 'Jonge Godin met ouwe vetklep':
       nick = 'Viv'      
     if name == 'Steef':
       nick = 'geweldenaar'      
     if name == 'Inge':
       nick = 'lekker stuk'      	  
     if name == 'Rinus':
-      nick = 'jonge god'      	  
+      nick = 'Jonge god'      	  
     if name == 'Rinus':
-      nick = 'jonge god'
+      nick = 'Jonge god'
     if name == 'Debbie':
       nick = 'milf'	     
     if name == 'Tamara':
       nick = 'milf'	     
     if name == 'Jasper':
-      nick = 'Jas'	     
+      nick = 'Jaz'	     
     if name == 'Hans':
       nick = 'Spaniard'	     
     if name == 'Maddy':
-      nick = 'doe-mij-maar-een-doos-wijn-addy'	     
+      nick = 'Doe-mij-maar-een-doos-wijn-addy'	     
     if name == 'Erik':
-      nick = 'jonge God'	     
+      nick = 'Jonge God'	     
     if name == 'Maickel':
-      nick = 'jonge God'	     
+      nick = 'Jonge God'	     
     if name == 'ro':
       nick = 'Ome Ro'
     if name == 'milf':
-      nick = 'jonge Godin'	     
+      nick = 'Jonge Godin'	     
     if name == 'Kas':
-      nick = 'jonge God'	     
+      nick = 'Jonge God'	     
     if name == 'Miranda':
       nick = 'milf'	     
     if name == 'Jochem':
-      nick = 'jonge God'	
+      nick = 'Jonge God'	
     if name == 'Paul':
-      nick = 'Bef-oh-matic'	
+      nick = 'Bef-oh-la-la-la-matic'	
     if name == 'Ank':
-      nick = 'jonge Godin'	
+      nick = 'Jonge Godin'	
     if name == 'Car':
-      nick = 'alchoholist'	
+      nick = 'zuipschuit'	
     if name == 'Gijs':
       nick = 'Vader & Moeder Gizo'	  
     if name == 'Mark':
       nick = 'hellimonder'	  
     if name == 'Kim':
-      nick = 'jonge Godin'	  
+      nick = 'Jonge Godin'	  
     if name == 'MenT':
       nick = 'Mark & Tanja'	  
     if name == 'Harry':
@@ -210,7 +210,7 @@ class registerInvites(webapp.RequestHandler):
         C[cookiename]['Max-Age']='2592000' 
         self.response.headers.add_header('Set-Cookie', C.output(header='') )     
     
-    self.redirect('/' + self.request.get('name'))
+    self.redirect('/' + self.request.get('name') + '#comments')
 
 
 application = webapp.WSGIApplication(
