@@ -119,7 +119,8 @@ class MainPage(webapp.RequestHandler):
     name = str(self.request.path)
     name = name[1:2].upper() + name[2:]
         
-    C = Cookie.SmartCookie()     
+    C = Cookie.SmartCookie() 
+    hey = ''    
     currentInvitees = ''
     registered = ''
     offspring = 0
