@@ -83,7 +83,13 @@ window.attachEvent("onload", correctPNG);
 		{{invitee}}
 	{% endfor %}	
 	</div>
-
+	<form 
+		style="padding-top:0px;maring-top:0px;"
+		action="" 
+		method="get" 
+		id="redirect" 
+		name="redirect" 
+		onsubmit="location.href='/' + $('redirectName').value;return false;">	
 	<div style="width:500px;">	
 		<div 
 			id="logo" 
@@ -116,27 +122,20 @@ window.attachEvent("onload", correctPNG);
 								>ik sta er niet tussen</a>)
 							{% endifequal%}
 					{% endif %}
-					<div id="onbekend" style="display:none;">
-						<form 
-							action="" 
-							method="get" 
-							id="redirect" 
-							name="redirect" 
-							onsubmit="location.href='/' + $('redirectName').value;return false;">	
+					<div id="onbekend" style="display:none;">						
 							Wat is je naam?
-							<input name="redirectName" id="redirectName" value="">
+							<input name="redirectName" id="redirectName" value="" style="width:125px;">
 							<a 
-								style="color:#FFFF33;text-decoration:underline;width:125px;"
+								style="color:#FFFF33;text-decoration:underline;"
 								href="javascript:void(0);"
-								onclick="location.href='/' + $('redirectName').value;">Go!</a>
-						</form>
+								onclick="location.href='/' + $('redirectName').value;">Go!</a>						
 					</div>
 					
 				</div>
 			</div>
 		</div>			
 	</div>	
-	
+	</form>
 		
 	
 	<div style="{% if registered %}{% else %}display:none;{% endif %}width:580px;" id="shizzle">
@@ -228,6 +227,16 @@ window.attachEvent("onload", correctPNG);
 						<a href="mailto:hetis@bijna2009.com" style="color:#FFFF33;">HetIs@Bijna2009.com</td>
 						</td>
 					</tr>	
+					{% ifequal kids 1%}
+					<tr><td colspan="2">&nbsp;</td></tr>
+					<tr>
+						<td colspan="2" class="dy"  style="width:200px;border:none;">
+						Kids?<br/>
+						Er zullen meerdere honymoon suites beschikbaar zijn voor uw eventuele 
+						nakomelingen. Zuidvast Babyopvang B.V. zal de volledige aansprakelijkheid op zich nemen.</td>
+						</td>
+					</tr>					
+					{% endifequal %}
 				</table>
 			</div>	
 			
