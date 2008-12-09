@@ -70,7 +70,7 @@ def getNick(name):
       nick = 'Nens'	  
     if name == 'Juud':
       nick = 'Drankorgel'
-	return nick
+    return nick
 
 def hasOffspring(name):
     hasOffspring = 0
@@ -188,9 +188,9 @@ class registerInvites(webapp.RequestHandler):
     invites.attend        = self.request.get('attend')
     invites.date          = self.request.get('date')
     invites.cookie        = self.request.get('attend')
-	invites.email         = self.request.get('email')
+    invites.email         = self.request.get('email')
     invites.voornemen2009 = self.request.get('voornemen2009')
-	invites.trickquestion = self.request.get('trickquestion')	
+    invites.trickquestion = self.request.get('trickquestion')	
 	
     invites.put()
     
