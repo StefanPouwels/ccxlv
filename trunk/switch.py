@@ -112,7 +112,7 @@ class MainPage(webapp.RequestHandler):
       target = 'index.html'
 
     ##### getting the inviteelist and comments
-    invites_query = Invites.all().order('date')
+    invites_query = Invites.all().order('-date')
     invites = invites_query.fetch(100)
  
     ##### getting the queryparamter
@@ -155,11 +155,17 @@ class MainPage(webapp.RequestHandler):
             r = db.GqlQuery("SELECT * FROM Invites WHERE name = :1",name)
             results = r.fetch(5)
             for p in results:
-                registered = 'yep2'
+                registered = p.attend
         
-        offspring = hasOffspring(name)              
-        hey = 'Hey ' + getNick(name)
-
+        offspring = hasOffspring(name)   
+		
+		if registered == 'ja':
+			hey = 'Helemaal gewelidg ' + getNick(name) + ', zie je 31 december!'
+		elif registered == 'nee':
+			hey = 'Hey ' + getNick(name) + ', hopelijk tot volgend jaar!'
+		else:
+			hey = 'Hey ' + getNick(name) + ', zin in een feestje?'
+			
     template_values = {
       'invites': invites,
       'currentInvitees': currentInvitees,
@@ -186,7 +192,6 @@ class registerInvites(webapp.RequestHandler):
     invites.name          = name
     invites.content       = self.request.get('content')
     invites.attend        = self.request.get('attend')
-    invites.date          = self.request.get('date')
     invites.cookie        = self.request.get('attend')
     invites.email         = self.request.get('email')
     invites.voornemen2009 = self.request.get('voornemen2009')

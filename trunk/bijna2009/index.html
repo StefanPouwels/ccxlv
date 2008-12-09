@@ -101,12 +101,12 @@ window.attachEvent("onload", correctPNG);
 				<div id="cd"></div>
 				<div>
 					{% if registered %}
-						<span style="font-size:11px;font-family:'Courier new',Arial;color:#FFFF33;">{{ hey }}, tot 31 december!</span>							
+						<span style="font-size:11px;font-family:'Courier new',Arial;color:#FFFF33;">{{ hey }}</span>							
 					{% else %}
 						{% if name %} 
 							<a id="h" href="javascript:void(0);" style="color:#FFFF33;text-decoration:underline;" 
 								onclick="$('shizzle').style.display = '';$('h').style.textDecoration='';">
-									{{ hey }}, zin in een feestje?</a>
+									{{ hey }}</a>
 						{% else %}
 							<a href="javascript:$('onbekend').display='';">
 						    Zin in een feestje?</a>
