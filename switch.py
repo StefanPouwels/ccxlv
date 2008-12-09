@@ -10,14 +10,50 @@ from google.appengine.ext import db
 
 def getNick(name):
     nick = name
+    if name == 'Col':
+        nick = 'jonge God Joris'
+    if name == 'Maartje':
+        nick = 'lekker ding'		
+    if name == 'Mitch':
+        nick = 'Master Disc'
+    if name == 'Viv':
+      nick = 'Viv'      
+    if name == 'Steef':
+      nick = 'geweldenaar'      
     if name == 'Inge':
-        nick = 'Schatje'
-    if name == 'Jochem':
-      nick = 'Jonge God'
-    if name == 'Stefan':
-      nick = 'God'      
-    if name == 'sjaak':
-        nick = 'Hitsige Harry'
+      nick = 'lekker stuk'      	  
+    if name == 'Rinus':
+      nick = 'jonge god'      	  
+    if name == 'Rinus':
+      nick = 'jonge god'
+    if name == 'Debbie':
+      nick = 'milf'	     
+    if name == 'Tamara':
+      nick = 'milf'	     
+    if name == 'Jasper':
+      nick = 'Jas'	     
+    if name == 'Hans':
+      nick = 'Spaniard'	     
+    if name == 'Maddy':
+      nick = 'doe-mij-maar-een-doos-wijn-addy'	     
+    if name == 'Erik':
+      nick = 'jonge God'	     
+    if name == 'Maickel':
+      nick = 'jonge God'	     
+    if name == 'ro':
+      nick = 'Ome Ro'
+    if name == 'Simone':
+      nick = 'jonge Godin'	     
+    if name == 'Kas':
+      nick = 'jonge Godin'	     
+	  	     
+
+
+
+
+	     	  
+
+
     return nick
 
 def hasOffspring(name):
@@ -30,7 +66,7 @@ def hasOffspring(name):
         hasOffspring = 1
     elif name == 'Simone':
         hasOffspring = 1
-    elif name == 'Merijn':
+    elif name == 'Rinus':
         hasOffspring = 1
     elif name == 'Debbie':
         hasOffspring = 1    
@@ -43,6 +79,8 @@ class Invites(db.Model):
   attend = db.StringProperty()
   cookie = db.StringProperty()
   email = cookie = db.StringProperty()
+  voornemen2009 = db.StringProperty(multiline=True)
+  trickquestion = db.StringProperty(multiline=True)
 
 class MainPage(webapp.RequestHandler):
   def get(self):
@@ -129,12 +167,15 @@ class registerInvites(webapp.RequestHandler):
     name = self.request.get('name')
     name = name[:1].upper() + name[1:]
       
-    invites.name    = name
-    invites.content = self.request.get('content')
-    invites.attend  = self.request.get('attend')
-    invites.date    = self.request.get('date')
-    invites.cookie  = self.request.get('attend')
-	invites.email   = self.request.get('email')
+    invites.name          = name
+    invites.content       = self.request.get('content')
+    invites.attend        = self.request.get('attend')
+    invites.date          = self.request.get('date')
+    invites.cookie        = self.request.get('attend')
+	invites.email         = self.request.get('email')
+    invites.voornemen2009 = self.request.get('voornemen2009')
+	invites.trickquestion = self.request.get('trickquestion')	
+	
     invites.put()
     
     cookiename = name
