@@ -42,6 +42,7 @@ class Invites(db.Model):
   date = db.DateTimeProperty(auto_now_add=True)
   attend = db.StringProperty()
   cookie = db.StringProperty()
+  email = cookie = db.StringProperty()
 
 class MainPage(webapp.RequestHandler):
   def get(self):
@@ -133,6 +134,7 @@ class registerInvites(webapp.RequestHandler):
     invites.attend  = self.request.get('attend')
     invites.date    = self.request.get('date')
     invites.cookie  = self.request.get('attend')
+	invites.email   = self.request.get('email')
     invites.put()
     
     cookiename = name
