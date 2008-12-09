@@ -159,11 +159,11 @@ class MainPage(webapp.RequestHandler):
         
         offspring = hasOffspring(name)   
 		
-		if registered == 'ja':
+        if registered == 'ja':
 			hey = 'Helemaal gewelidg ' + getNick(name) + ', zie je 31 december!'
-		elif registered == 'nee':
+        elif registered == 'nee':
 			hey = 'Hey ' + getNick(name) + ', hopelijk tot volgend jaar!'
-		else:
+        else:
 			hey = 'Hey ' + getNick(name) + ', zin in een feestje?'
 			
     template_values = {
