@@ -42,11 +42,17 @@ window.attachEvent("onload", correctPNG);
 <style type="text/css">
  .pr {top:-200px;}
  #disclaimer {margin-right:15px;}
+ #shizzle{width:900px;}
 </style>
 
 <![endif]--> 
-
-
+<!--[if IE 7]>
+<style type="text/css">
+ .pr {top:-200px;}
+ #shizzle{width:900px;}
+ #disclaimer {margin-right:35px;} 
+</style>
+<![endif]--> 
 
 <body style="background-color:#000000; "> 
 
@@ -241,7 +247,7 @@ window.attachEvent("onload", correctPNG);
 			<table cellpadding="0" cellspacing="0" border="0" width="100%">	
 				<form action="/signup" method="post" id="signupForm" name="signupForm" onsubmit="return checkForm();">	
 				<tr>
-					<td class="dy">Ben jij erbij?</td>
+					<td>Ben jij erbij?</td>
 				</tr>					
 				{% ifequal registered 'ja' %}
 				<tr>
@@ -341,6 +347,16 @@ window.attachEvent("onload", correctPNG);
 
 
 </center>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-1205790-4");
+pageTracker._trackPageview();
+} catch(err) {}</script>
 
 </body>
 </html>

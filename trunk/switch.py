@@ -16,22 +16,20 @@ def getNick(name):
         nick = 'lekker ding'		
     if name == 'Mitch':
         nick = 'Master Disc'
-    if name == 'Jonge Godin met ouwe vetklep':
-      nick = 'Viv'      
+    if name == 'Viv':
+      nick = 'Jonge Godin met ouwe vetklep'      
     if name == 'Steef':
       nick = 'geweldenaar'      
     if name == 'Inge':
       nick = 'lekker stuk'      	  
     if name == 'Rinus':
-      nick = 'Jonge god'      	  
-    if name == 'Rinus':
-      nick = 'Jonge god'
+      nick = 'Jonge god' 
     if name == 'Debbie':
       nick = 'milf'	     
     if name == 'Tamara':
       nick = 'milf'	     
     if name == 'Jasper':
-      nick = 'Jaz'	     
+      nick = 'Big daddy'	     
     if name == 'Hans':
       nick = 'Spaniard'	     
     if name == 'Maddy':
@@ -42,12 +40,12 @@ def getNick(name):
       nick = 'Jonge God'	     
     if name == 'ro':
       nick = 'Ome Ro'
-    if name == 'milf':
-      nick = 'Jonge Godin'	     
+    if name == 'Simone':
+      nick = 'MILF'	     
     if name == 'Kas':
       nick = 'Jonge God'	     
     if name == 'Miranda':
-      nick = 'milf'	     
+      nick = 'MILF'	     
     if name == 'Jochem':
       nick = 'Jonge God'	
     if name == 'Paul':
@@ -55,7 +53,7 @@ def getNick(name):
     if name == 'Ank':
       nick = 'Jonge Godin'	
     if name == 'Car':
-      nick = 'zuipschuit'	
+      nick = 'ontzettende zuipschuit'	
     if name == 'Gijs':
       nick = 'Vader & Moeder Gizo'	  
     if name == 'Mark':
