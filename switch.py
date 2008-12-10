@@ -101,6 +101,7 @@ class Invites(db.Model):
 class MainPage(webapp.RequestHandler):
   def get(self):
   
+    debug = ''
     target = 'uhm, not found?'    
     if re.search(r'test', self.request.host):
       target = 'ladyOnIctProjects/index.html'
@@ -146,24 +147,30 @@ class MainPage(webapp.RequestHandler):
             offspring = hasOffspring(name)
             
     else: ##### WEL query paramater....          
-        registered =''
+        registered =''        
         if self.request.headers.get('Cookie'):
           C.load(self.request.headers.get('Cookie'))
           if C.has_key(name):
-               registered = C[name].value    
-          else: ##### Maar geen cookie (user zit thuis/ op zijn werk)
-            ##### Check db...
-            r = db.GqlQuery("SELECT * FROM Invites WHERE name = :1",name)
-            results = r.fetch(5)
-            for p in results:
-                registered = p.attend
+               registered = C[name].value 
+          else: ##### Wel een cookie maar niet van deze persoon...
+              ##### Check db...
+              r = db.GqlQuery("SELECT * FROM Invites WHERE name = :1",name)
+              results = r.fetch(5)
+              for p in results:
+                  registered = p.attend
+        else: ##### Maar geen cookie (user zit thuis/ op zijn werk)
+          ##### Check db...
+          r = db.GqlQuery("SELECT * FROM Invites WHERE name = :1",name)
+          results = r.fetch(5)
+          for p in results:
+            registered = p.attend
         
         offspring = hasOffspring(name)   
 		
         if registered == 'ja':
 			hey = 'Helemaal gewelidg ' + getNick(name) + ', zie je 31 december!'
         elif registered == 'nee':
-			hey = 'Hey ' + getNick(name) + ', hopelijk tot volgend jaar!'
+			hey = 'Hey ' + getNick(name) + ', jammer, hopelijk tot volgend jaar!'
         else:
 			hey = 'Hey ' + getNick(name) + ', zin in een feestje?'
 			
@@ -175,6 +182,7 @@ class MainPage(webapp.RequestHandler):
       'hey': hey,
       'kids': offspring,
       'inviteeAmount': inviteeAmount,
+      'debug': debug,
       }
 
     path = os.path.join(os.path.dirname(__file__), target)
