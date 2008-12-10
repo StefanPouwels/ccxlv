@@ -1,6 +1,7 @@
 <head> 
 <title>Bijna 2009...</title> 
-<link rel="stylesheet" href="zv/css/style.css" type="text/css"> 
+<link rel="stylesheet" href="2009/css/style.css" type="text/css"> 
+<script type="text/javascript" src="2009/js/j.js"></script> 
 <script type="text/javascript" src="2009/js/countdown.js"></script> 
 <script type="text/javascript" src="2009/js/prototype.js"></script> 
 
@@ -37,77 +38,36 @@ function correctPNG() // correctly handle PNG transparency in Win IE 5.5 & 6.
 }
 window.attachEvent("onload", correctPNG);
 </script>
-<![endif]--> 
 
 <style type="text/css">
-	body { font: 11px 'Courier New', Courier, Sans-Serif; color:#AAAAAA; margin:0px; padding:0px; }
-	td { font: 11px 'Courier New', Courier, Sans-Serif; color:#AAAAAA;vertical-align:top; padding-right:5px; }
-	table { margin-right:20px; }
-	.fx {width: 180px;}
-	.dy {/*border-bottom:1px solid #666666;*/}
-	.cr {width: 250px;}
-	.pr {
-		float:left;
-		position:relative;
-		top:-100px;
-		padding:20px 10px 20px 20px;
-		margin-right:20px;
-		width:250px;
-		/*background-image: url(2009/img/form_bg.gif);*/
-		filter:alpha(opacity=55);
-		-moz-opacity:.75;
-		opacity:.75;
-		background-color:#333333;		
-	}
-	.st {text-decoration: line-through;}
-	input, textarea {
-		margin:5px;
-		width:200px;
-		border:1px solid #cccccc;
-		background-color:#333333;
-		color:white;
-		font-size:11px;
-		font: 11px "Courier New", Courier, Sans-Serif;
-	}
-	#logo {background-image:url(2009/img/bijna2009_4.jpg)}
-	.ja {color:#00CC33;}
-	.nee {color:#FF3300;}
-	a:hover, a.yellowlink {text-decoration:underline;color:#FFFF33;}	
-	.yellowlink {
-		color:#FFFF33;
-		text-decoration:underline;
-		font-size:10px;
-		font-family:Arial, Helvetica, sans-serif;
-		font:11px "Courier New", Courier, Sans-Serif;
-	}
+ .pr {top:-200px;}
+ #disclaimer {margin-right:15px;}
 </style>
+
+<![endif]--> 
+
+
 
 <body style="background-color:#000000; "> 
 
 <center>
-	
-	<!-- 
-	<div style="background-color:#333333;">
-	{% for invitee in currentInvitees %}
-		{{invitee}}
-	{% endfor %}	
-	</div>
-	 -->
 	<form 
 		style="padding-top:0px;maring-top:0px;"
 		action="" 
 		method="get" 
 		id="redirect" 
 		name="redirect" 
-		onsubmit="location.href='/' + $('redirectName').value;return false;">	
+		onsubmit="location.href='/' + $('redirectName').value;return false;">
 	<div style="width:500px;">	
 		<div 
 			id="logo" 
 			style="float:left;position:relative;margin:0px;padding:0px;width:500px;height:500px;text-align:center;">
-			<div id="diffie" 
-				style="filter:alpha(opacity=55);-moz-opacity:.55;opacity:.55;position:relative;background-color:#333333;width:460px;margin:0px;top:323px;padding:20px;">
-				<div id="cd"></div>
-				<div>
+		</div>			
+	</div>	
+	
+	<div id="diffie">
+			<div id="cd"></div><div>
+				
 					{% if registered %}
 						<span style="font-size:11px;font-family:'Courier new',Arial;color:#FFFF33;">{{ hey }}</span>							
 					{% else %}
@@ -142,249 +102,242 @@ window.attachEvent("onload", correctPNG);
 								class="yellowlink"
 								href="javascript:void(0);"
 								onclick="location.href='/' + $('redirectName').value;">Go!</a>						
-					</div>
-					
-				</div>
-			</div>
-		</div>			
-	</div>	
-	</form>
-		
-	
-	<div style="{% if registered %}{% else %}display:none;{% endif %}width:580px;" id="shizzle">
-	
-			<div class="pr" style="margin-bottom:10px;">			
-				<table cellpadding="0" cellspacing="0" border="0" width="100%">					
-					<tr>
-						<td colspan="2" class="dy">
-							Programma 31-12<br/>
-							Brabantse Nachten Zijn Lang</td>
-						</td>
-					</tr>					
-					<tr><td colspan="4">&nbsp;</td></tr>					
-					<tr>
-						<td>
-							19:30<br/>
-							&nbsp;&nbsp;|<br/>
-						</td>
-						<td class="fx">
-							<br/>
-							Arrive & cocktail van Col<br>													
-						</td>
-					</tr>
-					<tr>
-						<td>
-							20:00<br/>
-							&nbsp;&nbsp;|<br/>
-							&nbsp;&nbsp;|<br/>
-							&nbsp;&nbsp;|<br/>
-							&nbsp;&nbsp;|<br/>
-						<td>
-							<br/>
-							Brabantse Nachten Zijn Lang,
-							Diner met intermezzo van 
-							Col, Hans & Ro
-						</td>
-					</tr> 
-					<tr>
-						<td>
-							23:30<br/>
-							&nbsp;&nbsp;|<br/>
-							&nbsp;&nbsp;|<br/>
-							&nbsp;&nbsp;|<br/>
-						<td class="fx">
-							<br/>
-							Illigaal vuurwerk uitrollen, Champagne<br/>
-							ploppen</td>
-					</tr>	
-					<tr>
-						<td>
-							00:00<br/>
-							&nbsp;&nbsp;|<br/>
-							&nbsp;&nbsp;|<br/>
-							&nbsp;...</td>
-						<td class="fx">
-							<br/>
-							Fireworks & gluewine-streetbbq & fires</td>
-					</tr>			
-			</table>
-			</div>
-	
-			<div class="pr" style="margin-right:0px;margin-bottom:10px;float:right;">			
-				<table cellpadding="0" cellspacing="0" border="0" width="100%">	
-					<tr>
-						<td class="dy">
-							Locatie<br/>
-							Willem de Zwijgerstraat 57, Eindhoven						
-						</td>
-					</tr>			
-					<tr><td>&nbsp;</td></tr>
-					<tr>
-						<td class="dy"  style="width:200px;border:none;">
-						Dresscode<br/>
-						op sjiek, lekkere jurk, cocktail dress, Daniel Craig, crevette blanche, tenue de ville...</td>
-					</tr>	
-					<tr><td>&nbsp;</td></tr>
-					<tr>
-						<td class="dy"  style="width:200px;border:none;">
-						Kosten<br/>
-						Niet meer dan &euro; 75 p.p.</td>
-					</tr>	
-					<tr><td>&nbsp;</td></tr>
-					<tr>
-						<td class="dy"  style="width:200px;border:none;">
-						Vragen<br/>
-						Email <a href="mailto:hetis@bijna2009.com" class="yellowlink">HetIs@Bijna2009.com</td>
-					</tr>	
-					{% ifequal kids 1%}
-					<tr><td>&nbsp;</td></tr>
-					<tr>
-						<td class="dy"  style="width:200px;border:none;">
-						Kids?<br/>
-						Zuidvast Babyopvang B.V. zal meerdere honeymoon suites beschikbaar hebben voor uw eventuele 
-						nakomelingen en zal de volledige aansprakelijkheid en verzorging op zich nemen.</td>
-					</tr>					
-					{% endifequal %}
-				</table>
-			</div>	
-			
-			<div class="pr" style="margin-right:0px;text-align:left;float:right;clear:right;">			
-				<table cellpadding="0" cellspacing="0" border="0" width="100%">	
-					<form action="/signup" method="post" id="signupForm" name="signupForm">	
-					<tr>
-						<td class="dy">Ben jij erbij?</td>
-					</tr>					
-					{% ifequal registered 'ja' %}
-					<tr>
-						<td>
-						Ja, ik ben erbij en ga akkoord met de algemene voorwaarden zoals deze te lezen zijn in deze disclaimer. 
-							Ik ben zowel hoofdelijk als persoonlijk aansprakelijk voor alle verbintenissen waarvoor ik 
-							zojuist akkoord heb gegeven, zowel financi&euml;el als spiritueel. Op dit moment zijn al mijn 
-							lopende rekenenigen volledig verpand aan de organisatie van Bijna2009.com en ter 
-							zekerheidstelling van eventuele algemene schulden stel ik mijn organen, die van mijn partner 
-							en eventuele kinderen beschikbaar.
-						</td>
-					</td>
-					{% endifequal %}
-					{% ifequal registered 'nee' %}
-					<tr>
-						<td>
-						Nee, ben er niet bij...
-						</td>
-					</td>
-					{% endifequal %}
-					{% if registered %}
-					{% else %}		
-					<tr>
-						<td><b>
-						<a
-							class="nee" 
-							style="float:right;font-family:Arial;font-size:16px;text-decoration:underline;padding-right:0px;margin-right:0px;" 
-							href="javascript:void(0);" 
-							onclick="$('attend').value='nee';$('signupFormDiv').style.display='';$('n').style.display='';$('j').style.display='none';" id="nee">
-							Nee, helaas...</a>	
-						<a 
-							class="ja"
-							style="float:left;font-family:Arial;font-size:16px;text-decoration:underline;" 
-							href="javascript:void(0);" 
-							onclick="$('attend').value='ja';$('signupFormDiv').style.display='';$('n').style.display='none';$('j').style.display='';">
-							Ja, ben erbij...</a></b>
-												
-							<div style="display:none;" id="disclaimer">
-							en ga akkoord met de algemene voorwaarden zoals deze te lezen zijn in deze disclaimer. 
-							Ik ben zowel hoofdelijk als persoonlijk aansprakelijk voor alle verbintenissen waarvoor ik 
-							zojuist akkoord heb gegeven, zowel financi&euml;el als spiritueel. Op dit moment zijn al mijn 
-							lopende rekenenigen volledig verpand aan de organisatie van Bijna2009.com en ter 
-							zekerheidstelling van eventuele algemene schulden stel ik mijn organen, die van mijn partner 
-							en eventuele kinderen beschikbaar.<br/>
-						    </div>	
-						    
-						    <br clear="all"/>
-							<div id="signupFormDiv" style="display:none;padding:10px;">
-							      	<div id="j" style="display:none;">Gezellig... Laat het ons weten en vul onderstaan formulier in aub.</div>
-									<div id="n" style="display:none;">Jammer... Laat het ons weten en vul onderstaan formulier in aub.</div>
-									<br/>
-									<br/>
-							      	Naam<br/>
-							      	<input name="name" id="name" value="{{name}}">
-									Email<br/>
-							      	<input name="email" id="email" value="">
-							      	<input name="attend" id="attend" type="hidden" value="ja">
-							      	Mijn goede/ slechte voornemen voor 2009?<br/>
-							      	<textarea 
-							      		style="" 
-							      		name="voornemen2009" 
-							      		rows="3"></textarea>
-							      	Domste actie van 2008?<br/>
-							      	<textarea 
-							      		style="" 
-							      		name="trickquestion" 
-							      		rows="3"></textarea>										
-							     <a                          
-							      	href="javascript:document.signupForm.submit();" 
-							      	style="float:right;color:#ad9e29;text-decoration:underline;" 
-							      	onclick="$('nee').style.display='none';$('disclaimer').style.display='';">
-							      	Verstuur
-							     </a>							    
-						    </div>
-						</td>					
-					</tr>
-					{% endif %}										 			
-					</form>						
-				</table>						
-			</div>		
-
-			{% if registered %}
-			<div class="pr" style="margin-right:0px;text-align:left;clear:left;">
-			<a name="comments"></a>
-				<table cellpadding="0" cellspacing="0" border="0" width="100%">	
-					<tr>
-						<td colspan="2" class="dy">
-							{% for invite in invites%}							
-								{%ifequal invite.attend 'ja'%}
-								<div class="{{ invite.attend }}" style="padding-top:5px;text-align:left;background:transparent url(2009/img/ja_quote.gif) no-repeat scroll left top;padding-left:25px;">
-								{%if invite.trickquestion%}{{ invite.trickquestion|escape }}{% else %}Geen commentaar{% endif %}&quot;<br/>
-								- {{invite.name|escape}}, is er bij.
-								</div>
-								{% else %}
-								<div class="{{ invite.attend }}" style="padding-top:5px;text-align:right;background:transparent url(2009/img/nee_quote.gif) no-repeat scroll right top;padding-right:25px;">
-								&quot;{%if invite.trickquestion%}{{ invite.trickquestion|escape }}{% else %}Geen commentaar{% endif %}<br/>
-								- {{invite.name|escape}}, is er niet bij.
-								</div>
-								{%endifequal%}
-								<br/>
-						    {% endfor %}						
-						</td>
-					</tr>
-				</table>	
+					</div>	
 						
 			</div>
-			{% endif %}
-	</div>		
-	
-	
-	<!-- 
-	
- 	{% for greeting in greetings %}
-      {% if greeting.author %}
-        <b>{{ greeting.author.nickname }}</b> wrote:
-      {% else %}
-       An anonymous person wrote:
-      {% endif %}
-      <blockquote>{{ greeting.content|escape }}</blockquote>
-    {% endfor %}
+	</div><!-- end diffie -->
+	</form>	
+	<!--  <div style="{% if registered %}{% else %}display:none;{% endif %}width:100%;text-align:center;" id="shizzle"> -->
 
-    <form action="/sign" method="post">
-      <div><textarea name="content" rows="3" cols="60"></textarea></div>
-      <div><input type="submit" value="Sign Guestbook"></div>
-    </form>
-	
-	<br/>
-	hier moet dus test komen: {{ tester }}<br/>
+	<div id="shizzle" style="{% if registered %}{% else %}display:none;{% endif %}">
+		
+		<div class="pr">			
+			<table cellpadding="0" cellspacing="0" border="0" width="100%">					
+				<tr>
+					<td colspan="2" class="dy">
+						Programma 31-12<br/>
+						Brabantse Nachten Zijn Lang</td>
+					</td>
+				</tr>					
+				<tr><td colspan="4">&nbsp;</td></tr>					
+				<tr>
+					<td>
+						19:30<br/>
+						&nbsp;&nbsp;|<br/>
+					</td>
+					<td class="fx">
+						<br/>
+						Arrive & cocktail van Col<br>													
+					</td>
+				</tr>
+				<tr>
+					<td>
+						20:00<br/>
+						&nbsp;&nbsp;|<br/>
+						&nbsp;&nbsp;|<br/>
+						&nbsp;&nbsp;|<br/>
+						&nbsp;&nbsp;|<br/>
+					<td>
+						<br/>
+						Brabantse Nachten Zijn Lang,
+						Diner met intermezzo van 
+						Col, Hans & Ro
+					</td>
+				</tr> 
+				<tr>
+					<td>
+						23:30<br/>
+						&nbsp;&nbsp;|<br/>
+						&nbsp;&nbsp;|<br/>
+						&nbsp;&nbsp;|<br/>
+					<td class="fx">
+						<br/>
+						Illigaal vuurwerk uitrollen, Champagne<br/>
+						ploppen</td>
+				</tr>	
+				<tr>
+					<td>
+						00:00<br/>
+						&nbsp;&nbsp;|<br/>
+						&nbsp;&nbsp;|<br/>
+						&nbsp;...</td>
+					<td class="fx">
+						<br/>
+						Fireworks & gluewine-streetbbq & fires</td>
+				</tr>			
+			</table>
+		</div>
 
-    <a href="{{ url }}">{{ url_linktext }}</a>	
-	
-	 -->
+		<div class="pr">			
+			<table cellpadding="0" cellspacing="0" border="0" width="100%">	
+				<tr>
+					<td class="dy">
+						Locatie<br/>
+						Willem de Zwijgerstraat 57, Eindhoven						
+					</td>
+				</tr>			
+				<tr><td>&nbsp;</td></tr>
+				<tr>
+					<td class="dy"  style="width:200px;border:none;">
+					Dresscode<br/>
+					op sjiek, lekkere jurk, cocktail dress, Daniel Craig, crevette blanche, tenue de ville...</td>
+				</tr>	
+				<tr><td>&nbsp;</td></tr>
+				<tr>
+					<td class="dy"  style="width:200px;border:none;">
+					Kosten<br/>
+					Niet meer dan &euro; 75 p.p.</td>
+				</tr>	
+				<tr><td>&nbsp;</td></tr>
+				<tr>
+					<td class="dy"  style="width:200px;border:none;">
+					Vragen<br/>
+					Email <a href="mailto:hetis@bijna2009.com" class="yellowlink">HetIs@Bijna2009.com</td>
+				</tr>	
+				{% ifequal kids 1%}
+				<tr><td>&nbsp;</td></tr>
+				<tr>
+					<td class="dy"  style="width:200px;border:none;">
+					Kids?<br/>
+					Zuidvast Babyopvang B.V. zal meerdere honeymoon suites beschikbaar hebben voor uw eventuele 
+					nakomelingen en zal de volledige aansprakelijkheid en verzorging op zich nemen.</td>
+				</tr>					
+				{% endifequal %}
+			</table>
+		</div>	
+
+		{% if registered %}
+		<div class="pr">
+		<a name="comments"></a>
+			<table cellpadding="0" cellspacing="0" border="0" width="100%">	
+				<tr>
+					<td align="center">
+						<img src="/2009/img/wistjedat.gif" width="176" height="48" border="0">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="dy">
+						{% for invite in invites%}							
+							{%ifequal invite.attend 'ja'%}
+							<div class="{{ invite.attend }}" style="padding-top:5px;text-align:left;background:transparent url(2009/img/ja_quote.gif) no-repeat scroll left top;padding-left:25px;">
+							{%if invite.trickquestion%}{{ invite.trickquestion|escape }}{% else %}Geen commentaar{% endif %}&quot;<br/>
+							- {{invite.name|escape}}, is er bij.
+							</div>
+							{% else %}
+							<div class="{{ invite.attend }}" style="padding-top:5px;text-align:right;background:transparent url(2009/img/nee_quote.gif) no-repeat scroll right top;padding-right:25px;">
+							&quot;{%if invite.trickquestion%}{{ invite.trickquestion|escape }}{% else %}Geen commentaar{% endif %}<br/>
+							- {{invite.name|escape}}, is er niet bij.
+							</div>
+							{%endifequal%}
+							<br/>
+					    {% endfor %}						
+					</td>
+				</tr>
+			</table>					
+		</div>
+		{% endif %}			
+		
+		<div class="pr" id="disclaimer" style="float:right;">			
+			<table cellpadding="0" cellspacing="0" border="0" width="100%">	
+				<form action="/signup" method="post" id="signupForm" name="signupForm" onsubmit="return checkForm();">	
+				<tr>
+					<td class="dy">Ben jij erbij?</td>
+				</tr>					
+				{% ifequal registered 'ja' %}
+				<tr>
+					<td>
+					Ja, ik ben erbij... en ga akkoord met de algemene voorwaarden zoals deze te lezen zijn in deze disclaimer. 
+						Ik ben zowel hoofdelijk als persoonlijk aansprakelijk voor alle verbintenissen waarvoor ik 
+						zojuist akkoord heb gegeven, zowel financi&euml;el als spiritueel. Op dit moment zijn al mijn 
+						lopende rekenenigen volledig verpand aan de organisatie van Bijna2009.com en ter 
+						zekerheidstelling van eventuele algemene schulden stel ik mijn organen, die van mijn partner 
+						en eventuele kinderen beschikbaar.
+					</td>
+				</td>
+				{% endifequal %}
+				{% ifequal registered 'nee' %}
+				<tr>
+					<td>
+					Nee, ben er niet bij... maar ga wel akkoord met de algemene voorwaarden zoals deze te lezen zijn in deze disclaimer. 
+						Ik ben zowel hoofdelijk als persoonlijk aansprakelijk voor alle verbintenissen waarvoor anderen 
+						zojuist akkoord hebben gegeven, zowel financi&euml;el als spiritueel. Op dit moment zijn al mijn 
+						lopende rekenenigen volledig verpand aan de organisatie van Bijna2009.com en ter 
+						zekerheidstelling van eventuele algemene schulden stel ik mijn organen, die van mijn partner 
+						en eventuele kinderen beschikbaar.
+					</td>
+				</td>
+				{% endifequal %}
+				{% if registered %}
+				{% else %}		
+				<tr>
+					<td><b>
+					<a
+						class="nee" 
+						style="float:right;font-family:Arial;font-size:16px;text-decoration:underline;padding-right:0px;margin-right:0px;" 
+						href="javascript:void(0);" 
+						onclick="$('attend').value='nee';$('signupFormDiv').style.display='';$('n').style.display='';$('j').style.display='none';" id="nee">
+						Nee, helaas...</a>	
+					<a 
+						class="ja"
+						style="float:left;font-family:Arial;font-size:16px;text-decoration:underline;" 
+						href="javascript:void(0);" 
+						onclick="$('attend').value='ja';$('signupFormDiv').style.display='';$('n').style.display='none';$('j').style.display='';">
+						Ja, ben erbij...</a></b>
+											
+						<div style="display:none;" id="disclaimer">
+						en ga akkoord met de algemene voorwaarden zoals deze te lezen zijn in deze disclaimer. 
+						Ik ben zowel hoofdelijk als persoonlijk aansprakelijk voor alle verbintenissen waarvoor ik 
+						zojuist akkoord heb gegeven, zowel financi&euml;el als spiritueel. Op dit moment zijn al mijn 
+						lopende rekenenigen volledig verpand aan de organisatie van Bijna2009.com en ter 
+						zekerheidstelling van eventuele algemene schulden stel ik mijn organen, die van mijn partner 
+						en eventuele kinderen beschikbaar.<br/>
+					    </div>	
+					    
+					    <br clear="all"/>
+						<div id="signupFormDiv" style="display:none;padding:10px;">
+						      	<div id="j" style="display:none;">Gezellig... Laat het ons weten en vul onderstaand formulier in aub.</div>
+								<div id="n" style="display:none;">Jammer... Laat het ons weten en vul onderstaand formulier in aub.</div>
+								<br/>
+								<div id="formFeedback" style="display:none;"></div>
+								<br/>
+						      	Naam*<br/>
+						      	<input name="name" id="name" value="{{name}}">
+								Email*<br/>
+						      	<input name="email" id="email" value="">
+						      	<input name="attend" id="attend" type="hidden" value="ja">
+						      	Mijn goede/ slechte voornemen voor 2009?*<br/>
+						      	<textarea 
+						      		style="" 
+						      		name="voornemen2009" 
+						      		rows="3"></textarea>
+						      	Domste actie van 2008?*<br/>
+						      	<textarea 
+						      		style="" 
+						      		name="trickquestion" 
+						      		rows="3"></textarea>	
+						      	Iets anders? Iemand vergeten?<br/>
+						      	<textarea 
+						      		style="" 
+						      		name="content" 
+						      		rows="3"></textarea>
+						     <a                          
+						      	href="javascript:document.signupForm.submit();" 
+						      	style="float:right;color:#ad9e29;text-decoration:underline;" 
+						      	onclick="return checkForm();">
+						      	Verstuur
+						     </a>	
+						     <br/>
+						     * = verplicht veld						    
+					    </div>
+					</td>					
+				</tr>
+				{% endif %}										 			
+				</form>						
+			</table>						
+		</div>
+	</div>
+	<!-- </div> -->		
+
 
 
 </center>
