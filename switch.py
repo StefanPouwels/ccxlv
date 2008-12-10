@@ -25,9 +25,9 @@ def getNick(name):
     if name == 'Rinus':
       nick = 'Jonge god' 
     if name == 'Debbie':
-      nick = 'milf'	     
+      nick = 'MILF'	     
     if name == 'Tamara':
-      nick = 'milf'	     
+      nick = 'MILF'	     
     if name == 'Jasper':
       nick = 'Big daddy'	     
     if name == 'Hans':
@@ -37,8 +37,8 @@ def getNick(name):
     if name == 'Erik':
       nick = 'Jonge God'	     
     if name == 'Maickel':
-      nick = 'Jonge God'	     
-    if name == 'ro':
+      nick = 'Mighty Mike'	     
+    if name == 'Ro':
       nick = 'Ome Ro'
     if name == 'Simone':
       nick = 'MILF'	     
@@ -53,7 +53,7 @@ def getNick(name):
     if name == 'Ank':
       nick = 'Jonge Godin'	
     if name == 'Car':
-      nick = 'ontzettende zuipschuit'	
+      nick = 'ontzettende zuipschuit Car'	
     if name == 'Gijs':
       nick = 'Vader & Moeder Gizo'	  
     if name == 'Mark':
@@ -83,7 +83,9 @@ def hasOffspring(name):
     elif name == 'Rinus':
         hasOffspring = 1
     elif name == 'Debbie':
-        hasOffspring = 1    
+        hasOffspring = 1 
+    elif name == 'Gijs':
+        hasOffspring = 1           
     return hasOffspring
 
 class Invites(db.Model):
@@ -120,6 +122,7 @@ class MainPage(webapp.RequestHandler):
         
     C = Cookie.SmartCookie() 
     hey = ''    
+    title = ''
     currentInvitees = ''
     registered = ''
     offspring = 0
@@ -128,20 +131,28 @@ class MainPage(webapp.RequestHandler):
         ##### check cookies
         if self.request.headers.get('Cookie'):
             ##### load all cookies
-            C.load(self.request.headers.get('Cookie'))            
-            registered = 'yep1'
-            
+            C.load(self.request.headers.get('Cookie'))   
             ##### Iterate over the cookies, create a hey
-            currentInvitees = C.keys()
-            l = inviteeAmount = len(C)
-            i = 0
-            hey = 'Hey '
-            for name in C.iterkeys():
-                i = i + 1
-                hey = hey + getNick(name)       
-                if i < l:
-                    hey = hey + ', ' 
-                    
+            l = currentInvitees = C.keys()          
+            i = 0            
+            inviteeAmount = 0
+            for cookiename in C.iterkeys():
+                if not re.search(r'_', cookiename):                  
+                  i = i + 1
+                  if i == 1:
+                      hey = 'Hey '                  
+                  name = cookiename
+                  inviteeAmount += 1                   
+                  registered = 'yep1'            
+                  hey = hey + getNick(name)                         
+                  if i < l:
+                      hey = hey + ', ' 
+            if inviteeAmount == 1:
+                r = db.GqlQuery("SELECT * FROM Invites WHERE name = :1",name)
+                results = r.fetch(5)
+                for p in results:
+                    registered = p.attend
+                
             offspring = hasOffspring(name)
             
     else: ##### WEL query paramater....          
@@ -166,12 +177,15 @@ class MainPage(webapp.RequestHandler):
         offspring = hasOffspring(name)   
 		
         if registered == 'ja':
-			hey = 'Helemaal gewelidg ' + getNick(name) + ', zie je 31 december!'
+			hey = 'Helemaal geweldig ' + getNick(name) + ', zie je 31 december!'
         elif registered == 'nee':
 			hey = 'Hey ' + getNick(name) + ', jammer, hopelijk tot volgend jaar!'
         else:
 			hey = 'Hey ' + getNick(name) + ', zin in een feestje?'
 			
+    if getNick(name) == 'MILF':
+        title = 'Slang for an older, sexually attractive woman who is also a mother...'
+            
     template_values = {
       'invites': invites,
       'currentInvitees': currentInvitees,
@@ -181,6 +195,7 @@ class MainPage(webapp.RequestHandler):
       'kids': offspring,
       'inviteeAmount': inviteeAmount,
       'debug': debug,
+      'title': title,
       }
 
     path = os.path.join(os.path.dirname(__file__), target)

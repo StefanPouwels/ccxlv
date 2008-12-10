@@ -50,7 +50,7 @@ window.attachEvent("onload", correctPNG);
 <style type="text/css">
  .pr {top:-200px;}
  #shizzle{width:900px;}
- #disclaimer {margin-right:35px;} 
+ #disclaimer {margin-right:40px;} 
 </style>
 <![endif]--> 
 
@@ -75,10 +75,10 @@ window.attachEvent("onload", correctPNG);
 			<div id="cd"></div><div>
 				
 					{% if registered %}
-						<span style="font-size:11px;font-family:'Courier new',Arial;color:#FFFF33;">{{ hey }}</span>							
+						<span style="font-size:11px;font-family:'Courier new',Arial;color:#FFFF33;" title="{{title}}">{{ hey }}</span>							
 					{% else %}
-						{% if name %} 
-							<a id="h" href="javascript:void(0);" class="yellowlink" 
+						{% if hey %} 
+							<a id="h" title="{{title}}" href="javascript:void(0);" class="yellowlink" 
 								onclick="$('shizzle').style.display = '';$('h').style.textDecoration='';">
 									{{ hey }}</a>
 						{% else %}
@@ -92,6 +92,7 @@ window.attachEvent("onload", correctPNG);
 					</a>
 					{% if name %} 
 						(<a 
+							title="{{title}}"
 							href="javascript:void(0);" 
 							onclick=";$('onbekend').style.display = '';$('diffie').style.padding='10px 10px 0px 10px'" 
 							style="font-size:10px;"
@@ -145,9 +146,9 @@ window.attachEvent("onload", correctPNG);
 						&nbsp;&nbsp;|<br/>
 					<td>
 						<br/>
-						Brabantse Nachten Zijn Lang,
-						Diner met intermezzo van 
-						Col, Hans & Ro
+						Brabants diner<br/>
+						met intermezzo van<br/> 
+						Col, the Spaniard & Master Ro
 					</td>
 				</tr> 
 				<tr>
@@ -169,7 +170,7 @@ window.attachEvent("onload", correctPNG);
 						&nbsp;...</td>
 					<td class="fx">
 						<br/>
-						Fireworks & gluewine-streetbbq & fires</td>
+						Fireworks & Gl&uuml;hwein -streetbbq & fires</td>
 				</tr>			
 			</table>
 		</div>
@@ -209,6 +210,27 @@ window.attachEvent("onload", correctPNG);
 					nakomelingen en zal de volledige aansprakelijkheid en verzorging op zich nemen.</td>
 				</tr>					
 				{% endifequal %}
+				{% if registered %}
+				<tr><td>&nbsp;</td></tr>
+				<tr>
+					<td align="center">
+						<img src="/2009/img/ietsanders.gif" width="220" height="40" border="0">
+					</td>
+				</tr>								
+				<tr>
+					<td colspan="2" class="dy">
+						{% for invite in invites%}		
+							{%if invite.content%}					
+							<div class="{{ invite.attend }}" style="padding-top:5px;text-align:left;background:transparent url(2009/img/ja_quote.gif) no-repeat scroll left top;padding-left:25px;">
+							{{ invite.content|escape }}&quot;<br/>
+							<span style="color:#AAAAAA;">- {{invite.name|escape}}</span>
+							</div>
+							<br/>
+							{% endif %}
+					    {% endfor %}						
+					</td>
+				</tr>	
+				{% endif %}			
 			</table>
 		</div>	
 
@@ -218,7 +240,7 @@ window.attachEvent("onload", correctPNG);
 			<table cellpadding="0" cellspacing="0" border="0" width="100%">	
 				<tr>
 					<td align="center">
-						<img src="/2009/img/wistjedat.gif" width="176" height="48" border="0">
+						<img src="/2009/img/wistjedat.gif" width="220" height="40" border="0">
 					</td>
 				</tr>
 				<tr>
@@ -227,12 +249,12 @@ window.attachEvent("onload", correctPNG);
 							{%ifequal invite.attend 'ja'%}
 							<div class="{{ invite.attend }}" style="padding-top:5px;text-align:left;background:transparent url(2009/img/ja_quote.gif) no-repeat scroll left top;padding-left:25px;">
 							{%if invite.trickquestion%}{{ invite.trickquestion|escape }}{% else %}Geen commentaar{% endif %}&quot;<br/>
-							- {{invite.name|escape}}, is er bij.
+							<span style="color:#AAAAAA;">- {{invite.name|escape}}</span>, is er bij.
 							</div>
 							{% else %}
 							<div class="{{ invite.attend }}" style="padding-top:5px;text-align:right;background:transparent url(2009/img/nee_quote.gif) no-repeat scroll right top;padding-right:25px;">
 							&quot;{%if invite.trickquestion%}{{ invite.trickquestion|escape }}{% else %}Geen commentaar{% endif %}<br/>
-							- {{invite.name|escape}}, is er niet bij.
+							<span style="color:#AAAAAA;">- {{invite.name|escape}}</span>, is er niet bij.
 							</div>
 							{%endifequal%}
 							<br/>
@@ -243,7 +265,8 @@ window.attachEvent("onload", correctPNG);
 		</div>
 		{% endif %}			
 		
-		<div class="pr" id="disclaimer" style="float:right;">			
+		{% ifequal inviteeAmount 1 %}
+		<div class="pr" style="float:left;">			
 			<table cellpadding="0" cellspacing="0" border="0" width="100%">	
 				<form action="/signup" method="post" id="signupForm" name="signupForm" onsubmit="return checkForm();">	
 				<tr>
@@ -260,6 +283,7 @@ window.attachEvent("onload", correctPNG);
 						en eventuele kinderen beschikbaar.
 					</td>
 				</td>
+				</tr>
 				{% endifequal %}
 				{% ifequal registered 'nee' %}
 				<tr>
@@ -272,6 +296,7 @@ window.attachEvent("onload", correctPNG);
 						en eventuele kinderen beschikbaar.
 					</td>
 				</td>
+				</tr>
 				{% endifequal %}
 				{% if registered %}
 				{% else %}		
@@ -311,7 +336,7 @@ window.attachEvent("onload", correctPNG);
 								Email*<br/>
 						      	<input name="email" id="email" value="">
 						      	<input name="attend" id="attend" type="hidden" value="ja">
-						      	Mijn goede/ slechte voornemen voor 2009?*<br/>
+						      	Mijn goede/ slechte voornemens voor 2009?*<br/>
 						      	<textarea 
 						      		style="" 
 						      		name="voornemen2009" 
@@ -341,6 +366,8 @@ window.attachEvent("onload", correctPNG);
 				</form>						
 			</table>						
 		</div>
+		{%endifequal%}
+		
 	</div>
 	<!-- </div> -->		
 
