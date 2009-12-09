@@ -1,60 +1,75 @@
+	/* <!-- */
+	/* General styles */
+	body {
+		margin:0;
+		padding:0;
+		border:0;			/* This removes the border around the viewport in old versions of IE */
+		width:100%;
+		background:#fff;
+		min-width:600px;    	/* Minimum width of layout - remove line if not required */
+						/* The min-width property does not work in old versions of Internet Explorer */
+		font-family:Arial;
+		font-size:12px;
+	}
 
-body { font: 11px 'Courier New', Courier, Sans-Serif; color:#AAAAAA; margin:0px; padding:0px; text-align: center; min-width: 600px;}
-td { font: 11px 'Courier New', Courier, Sans-Serif; color:#AAAAAA;vertical-align:top; padding-right:5px; }
-table { margin-right:20px; }
-a {color:#999999;text-decoration:none;}
-.fx {width: 180px;}
-.dy {/*border-bottom:1px solid #666666;*/}
-.cr {width: 250px;}
-#shizzle {
-	margin:0 auto;
-	width:900px;
-	text-align: left;
-}	
-.pr {
-	float:left;
-	position:relative;
-	top:-180px; /*  IE needs a 180 here */
-	padding:20px 10px 20px 20px;
-	margin:0px 10px 10px 10px;
-	width:250px;
-	/*background-image: url(/2009/img/form_bg.gif);*/
-	filter:alpha(opacity=55);
-	-moz-opacity:.75;
-	opacity:.75;
-	background-color:#333333;		
-}
-.st {text-decoration: line-through;}
-input, textarea {
-	margin:5px;
-	width:200px;
-	border:1px solid #cccccc;
-	background-color:#333333;
-	color:white;
-	font-size:11px;
-	font: 11px "Courier New", Courier, Sans-Serif;
-}
-#logo {background-image:url(/2009/img/bijna2009_4.jpg)}
-.ja {color:#00CC33;}
-.nee {color:#FF3300;}
-a:hover, a.yellowlink {text-decoration:underline;color:#FFFF33;}
-#formFeedback {background-color:#FFFF33;color:#666666;padding:5px;text-align:center;}
-.yellowlink {
-	color:#FFFF33;
-	text-decoration:underline;
-	font-size:10px;
-	font-family:Arial, Helvetica, sans-serif;
-	font:11px "Courier New", Courier, Sans-Serif;
-}
-#diffie {
-	float:left;
-	width:100%;
-	filter:alpha(opacity=55);
-	-moz-opacity:.55;
-	opacity:.55;
-	position:relative;
-	background-color:#333333;
-	margin:0px;
-	top:-200px;
-	padding:20px;		
-}
+	/* Header styles */
+	#header {
+		clear:both;
+		float:left;
+		width:100%;
+	}
+	#header {
+		border-bottom:1px solid #000;
+	}
+
+	/* column container */
+	.colmask {
+		clear:both;
+		float:left;
+		width:100%;			/* width of whole page */
+		overflow:hidden;		/* This chops off any overhanging divs */
+	}
+	/* common column settings */
+	.colright,
+	.colmid,
+	.colleft {
+		float:left;
+		width:100%;
+		position:relative;
+	}
+	.col1,
+	.col2,
+	.col3 {
+		float:left;
+		position:relative;
+		padding:0 0 1em 0;
+		overflow:hidden;
+	}
+	/* 2 Column (double page) settings */
+	.doublepage {
+		background:#eee;		/* right column background colour */
+	}
+	.doublepage .colleft {
+		right:50%;			/* right column width */
+		background:#fff;		/* left column background colour */
+	}
+	.doublepage .col1 {
+		width:46%;			/* left column content width (column width minus left and right padding) */
+		left:52%;			/* right column width plus left column left padding */
+	}
+	.doublepage .col2 {
+		width:46%;			/* right column content width (column width minus left and right padding) */
+		left:56%;			/* (right column width) plus (left column left and right padding) plus (right column left padding) */
+	}
+	/* Footer styles */
+	#footer {
+		clear:both;
+		float:left;
+		width:100%;
+		border-top:1px solid #000;
+	}
+	#footer p {
+		padding:10px;
+		margin:0;
+	}
+	/* --> */
