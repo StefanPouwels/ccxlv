@@ -107,8 +107,8 @@ class MainPage(webapp.RequestHandler):
       target = 'ladyOnIctProjects/index.html'
     elif re.search(r'zuidvast.nl', self.request.host):
       target = 'zuidvast/index.html'    
-    elif re.search(r'ccxlv.', self.request.host):
-      target = 'bijna2010/index.html'    
+    elif re.search(r'bijna2009.', self.request.host):
+      target = 'bijna2009/index.html'    
     else:
       target = 'index.html'
 
