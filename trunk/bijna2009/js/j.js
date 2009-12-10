@@ -1,4 +1,14 @@
 
+function ola()
+{
+	$('#cf').show('slide');
+}
+
+function olb()
+{
+	$('#of').show('slide');
+}
+
 function checkForm()
 {
 	// name, email, attend, voornemen2009, trickquestion
