@@ -88,7 +88,7 @@ def hasOffspring(name):
         hasOffspring = 1           
     return hasOffspring
 
-class Invites2010(db.Model):
+class Invites_2010(db.Model):
   name = db.StringProperty()
   content = db.StringProperty(multiline=True)
   date = db.DateTimeProperty(auto_now_add=True)
@@ -110,10 +110,10 @@ class MainPage(webapp.RequestHandler):
     elif re.search(r'ccxlv.', self.request.host):
       target = 'bijna2010/index.html'    
     else:
-      target = 'index.html'
+      target = 'bijna2010/index.html'    
 
     ##### getting the inviteelist and comments
-    invites_query = Invites2010.all().order('-date')
+    invites_query = Invites_2010.all().order('-date')
     invites = invites_query.fetch(100)
  
     ##### getting the queryparamter
@@ -148,7 +148,7 @@ class MainPage(webapp.RequestHandler):
                   if i < l:
                       hey = hey + ', ' 
             if inviteeAmount == 1:
-                r = db.GqlQuery("SELECT * FROM Invites2010 WHERE name = :1",name)
+                r = db.GqlQuery("SELECT * FROM Invites_2010 WHERE name = :1",name)
                 results = r.fetch(5)
                 for p in results:
                     registered = p.attend
@@ -163,13 +163,13 @@ class MainPage(webapp.RequestHandler):
                registered = C[name].value 
           else: ##### Wel een cookie maar niet van deze persoon...
               ##### Check db...
-              r = db.GqlQuery("SELECT * FROM Invites2010 WHERE name = :1",name)
+              r = db.GqlQuery("SELECT * FROM Invites_2010 WHERE name = :1",name)
               results = r.fetch(5)
               for p in results:
                   registered = p.attend
         else: ##### Maar geen cookie (user zit thuis/ op zijn werk)
           ##### Check db...
-          r = db.GqlQuery("SELECT * FROM Invites2010 WHERE name = :1",name)
+          r = db.GqlQuery("SELECT * FROM Invites_2010 WHERE name = :1",name)
           results = r.fetch(5)
           for p in results:
             registered = p.attend
@@ -203,9 +203,9 @@ class MainPage(webapp.RequestHandler):
 	
 
     
-class registerInvites2010(webapp.RequestHandler):
+class registerInvites_2010(webapp.RequestHandler):
   def post(self):
-    invites = Invites2010()
+    invites = Invites_2010()
           
     ##### Naam en dus cookie met een hoofletter
     name = self.request.get('name')
@@ -236,7 +236,7 @@ class registerInvites2010(webapp.RequestHandler):
 
 application = webapp.WSGIApplication(
                                      [('/', MainPage),
-                                      ('/signup', registerInvites2010),                                    
+                                      ('/signup', registerInvites_2010),                                    
                                       ('/.*', MainPage)],
                                      debug=True)
 
