@@ -231,7 +231,8 @@ class registerInvites_2010(webapp.RequestHandler):
         C[cookiename]['Max-Age']='2592000' 
         self.response.headers.add_header('Set-Cookie', C.output(header='') )     
     
-    self.redirect('/' + self.request.get('name') + '#comments')
+    self.response.out.write('Data saved!')
+    #### self.redirect('/' + self.request.get('name') + '#comments')
 
 
 application = webapp.WSGIApplication(
