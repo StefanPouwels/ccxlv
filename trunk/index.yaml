@@ -28,7 +28,7 @@ indexes:
   - name: date
     direction: desc
 
-# Used 2 times in query history.
+# Used 81 times in query history.
 - kind: Invites_2010
   properties:
   - name: date
