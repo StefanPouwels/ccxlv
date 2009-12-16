@@ -1,0 +1,389 @@
+<head> 
+<title>Bijna 2009...</title> 
+<link rel="stylesheet" href="2009/css/style.css" type="text/css"> 
+<script type="text/javascript" src="2009/js/j.js"></script> 
+<script type="text/javascript" src="2009/js/countdown.js"></script> 
+<script type="text/javascript" src="2009/js/prototype.js"></script> 
+
+<!--[if lt IE 7]>
+<script language="JavaScript">
+function correctPNG() // correctly handle PNG transparency in Win IE 5.5 & 6.
+{
+   var arVersion = navigator.appVersion.split("MSIE")
+   var version = parseFloat(arVersion[1])
+   if ((version >= 5.5) && (document.body.filters)) 
+   {
+      for(var i=0; i<document.images.length; i++)
+      {
+         var img = document.images[i]
+         var imgName = img.src.toUpperCase()
+         if (imgName.substring(imgName.length-3, imgName.length) == "PNG")
+         {
+            var imgID = (img.id) ? "id='" + img.id + "' " : ""
+            var imgClass = (img.className) ? "class='" + img.className + "' " : ""
+            var imgTitle = (img.title) ? "title='" + img.title + "' " : "title='" + img.alt + "' "
+            var imgStyle = "display:inline-block;" + img.style.cssText 
+            if (img.align == "left") imgStyle = "float:left;" + imgStyle
+            if (img.align == "right") imgStyle = "float:right;" + imgStyle
+            if (img.parentElement.href) imgStyle = "cursor:hand;" + imgStyle
+            var strNewHTML = "<span " + imgID + imgClass + imgTitle
+            + " style=\"" + "width:" + img.width + "px; height:" + img.height + "px;" + imgStyle + ";"
+            + "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader"
+            + "(src=\'" + img.src + "\', sizingMethod='scale');\"></span>" 
+            img.outerHTML = strNewHTML
+            i = i-1
+         }
+      }
+   }    
+}
+window.attachEvent("onload", correctPNG);
+</script>
+
+<style type="text/css">
+ .pr {top:-200px;}
+ #disclaimer {margin-right:15px;}
+ #shizzle{width:900px;}
+</style>
+
+<![endif]--> 
+<!--[if IE 7]>
+<style type="text/css">
+ .pr {top:-200px;}
+ #shizzle{width:900px;}
+ #disclaimer {margin-right:40px;} 
+</style>
+<![endif]--> 
+
+<body style="background-color:#000000; "> 
+
+<center>
+	<form 
+		style="padding-top:0px;maring-top:0px;"
+		action="" 
+		method="get" 
+		id="redirect" 
+		name="redirect" 
+		onsubmit="location.href='/' + $('redirectName').value;return false;">
+	<div style="width:500px;">	
+		<div 
+			id="logo" 
+			style="float:left;position:relative;margin:0px;padding:0px;width:500px;height:500px;text-align:center;">
+		</div>			
+	</div>	
+	
+	<div id="diffie">
+			<div id="cd"></div><div>
+				
+					{% if registered %}
+						<span style="font-size:11px;font-family:'Courier new',Arial;color:#FFFF33;" title="{{title}}">{{ hey }}</span>							
+					{% else %}
+						{% if hey %} 
+							<a id="h" title="{{title}}" href="javascript:void(0);" class="yellowlink" 
+								onclick="$('shizzle').style.display = '';$('h').style.textDecoration='';">
+									{{ hey }}</a>
+						{% else %}
+							<a href="javascript:void(0);" 
+							onclick=";$('onbekend').style.display = '';$('diffie').style.padding='10px 10px 0px 10px'"
+							class="yellowlink"
+							>
+						    Zin in een feestje?</a>
+						{% endif %}
+					{% endif %}
+					</a>
+					{% if name %} 
+						(<a 
+							title="{{title}}"
+							href="javascript:void(0);" 
+							onclick=";$('onbekend').style.display = '';$('diffie').style.padding='10px 10px 0px 10px'" 
+							style="font-size:10px;"
+							{% ifequal inviteeAmount 1 %}
+								>ik ben {{ name }} niet</a>)
+							{% else %}
+								>ik sta er niet tussen</a>)
+							{% endifequal%}
+					{% endif %}
+					<div id="onbekend" style="display:none;">						
+							Wat is je naam?
+							<input name="redirectName" id="redirectName" value="" style="width:125px;">
+							<a 
+								class="yellowlink"
+								href="javascript:void(0);"
+								onclick="location.href='/' + $('redirectName').value;">Go!</a>						
+					</div>	
+						
+			</div>
+	</div><!-- end diffie -->
+	</form>	
+	<!--  <div style="{% if registered %}{% else %}display:none;{% endif %}width:100%;text-align:center;" id="shizzle"> -->
+
+	<div id="shizzle" style="{% if registered %}{% else %}display:none;{% endif %}">
+		
+		<div class="pr">			
+			<table cellpadding="0" cellspacing="0" border="0" width="100%">					
+				<tr>
+					<td colspan="2" class="dy">
+						Programma 31-12<br/>
+						Brabantse Nachten Zijn Lang</td>
+					</td>
+				</tr>					
+				<tr><td colspan="4">&nbsp;</td></tr>					
+				<tr>
+					<td>
+						19:30<br/>
+						&nbsp;&nbsp;|<br/>
+					</td>
+					<td class="fx">
+						<br/>
+						Arrive & cocktail van Col<br>													
+					</td>
+				</tr>
+				<tr>
+					<td>
+						20:00<br/>
+						&nbsp;&nbsp;|<br/>
+						&nbsp;&nbsp;|<br/>
+						&nbsp;&nbsp;|<br/>
+						&nbsp;&nbsp;|<br/>
+					<td>
+						<br/>
+						Brabants diner<br/>
+						met intermezzo van<br/> 
+						Col, the Spaniard & Master Ro
+					</td>
+				</tr> 
+				<tr>
+					<td>
+						23:30<br/>
+						&nbsp;&nbsp;|<br/>
+						&nbsp;&nbsp;|<br/>
+						&nbsp;&nbsp;|<br/>
+					<td class="fx">
+						<br/>
+						Illigaal vuurwerk uitrollen, Champagne<br/>
+						ploppen</td>
+				</tr>	
+				<tr>
+					<td>
+						00:00<br/>
+						&nbsp;&nbsp;|<br/>
+						&nbsp;&nbsp;|<br/>
+						&nbsp;...</td>
+					<td class="fx">
+						<br/>
+						Fireworks & Gl&uuml;hwein -streetbbq & fires</td>
+				</tr>			
+			</table>
+		</div>
+
+		<div class="pr">			
+			<table cellpadding="0" cellspacing="0" border="0" width="100%">	
+				<tr>
+					<td class="dy">
+						Locatie<br/>
+						Willem de Zwijgerstraat 57, Eindhoven						
+					</td>
+				</tr>			
+				<tr><td>&nbsp;</td></tr>
+				<tr>
+					<td class="dy"  style="width:200px;border:none;">
+					Dresscode<br/>
+					op sjiek, lekkere jurk, cocktail dress, Daniel Craig, crevette blanche, tenue de ville...</td>
+				</tr>	
+				<tr><td>&nbsp;</td></tr>
+				<tr>
+					<td class="dy"  style="width:200px;border:none;">
+					Kosten<br/>
+					Niet meer dan &euro; 75 p.p.</td>
+				</tr>	
+				<tr><td>&nbsp;</td></tr>
+				<tr>
+					<td class="dy"  style="width:200px;border:none;">
+					Vragen<br/>
+					Email <a href="mailto:hetis@bijna2009.com" class="yellowlink">HetIs@Bijna2009.com</td>
+				</tr>	
+				{% ifequal kids 1%}
+				<tr><td>&nbsp;</td></tr>
+				<tr>
+					<td class="dy"  style="width:200px;border:none;">
+					Kids?<br/>
+					Zuidvast Babyopvang B.V. zal meerdere honeymoon suites beschikbaar hebben voor uw eventuele 
+					nakomelingen en zal de volledige aansprakelijkheid en verzorging op zich nemen.</td>
+				</tr>					
+				{% endifequal %}
+				{% if registered %}
+				<tr><td>&nbsp;</td></tr>
+				<tr>
+					<td align="center">
+						<img src="/2009/img/ietsanders.gif" width="220" height="40" border="0">
+					</td>
+				</tr>								
+				<tr>
+					<td colspan="2" class="dy">
+						{% for invite in invites%}		
+							{%if invite.content%}					
+							<div class="{{ invite.attend }}" style="padding-top:5px;text-align:left;background:transparent url(2009/img/ja_quote.gif) no-repeat scroll left top;padding-left:25px;">
+							{{ invite.content|escape }}&quot;<br/>
+							<span style="color:#AAAAAA;">- {{invite.name|escape}}</span>
+							</div>
+							<br/>
+							{% endif %}
+					    {% endfor %}						
+					</td>
+				</tr>	
+				{% endif %}			
+			</table>
+		</div>	
+
+		{% if registered %}
+		<div class="pr">
+		<a name="comments"></a>
+			<table cellpadding="0" cellspacing="0" border="0" width="100%">	
+				<tr>
+					<td align="center">
+						<img src="/2009/img/wistjedat.gif" width="220" height="40" border="0">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="dy">
+						{% for invite in invites%}							
+							{%ifequal invite.attend 'ja'%}
+							<div class="{{ invite.attend }}" style="padding-top:5px;text-align:left;background:transparent url(2009/img/ja_quote.gif) no-repeat scroll left top;padding-left:25px;">
+							{%if invite.trickquestion%}{{ invite.trickquestion|escape }}{% else %}Geen commentaar{% endif %}&quot;<br/>
+							<span style="color:#AAAAAA;">- {{invite.name|escape}}</span>, is er bij.
+							</div>
+							{% else %}
+							<div class="{{ invite.attend }}" style="padding-top:5px;text-align:right;background:transparent url(2009/img/nee_quote.gif) no-repeat scroll right top;padding-right:25px;">
+							&quot;{%if invite.trickquestion%}{{ invite.trickquestion|escape }}{% else %}Geen commentaar{% endif %}<br/>
+							<span style="color:#AAAAAA;">- {{invite.name|escape}}</span>, is er niet bij.
+							</div>
+							{%endifequal%}
+							<br/>
+					    {% endfor %}						
+					</td>
+				</tr>
+			</table>					
+		</div>
+		{% endif %}			
+		
+		{% ifequal inviteeAmount 1 %}
+		<div class="pr" style="float:left;">			
+			<table cellpadding="0" cellspacing="0" border="0" width="100%">	
+				<form action="/signup" method="post" id="signupForm" name="signupForm" onsubmit="return checkForm();">	
+				<tr>
+					<td>Ben jij erbij?</td>
+				</tr>					
+				{% ifequal registered 'ja' %}
+				<tr>
+					<td>
+					Ja, ik ben erbij... en ga akkoord met de algemene voorwaarden zoals deze te lezen zijn in deze disclaimer. 
+						Ik ben zowel hoofdelijk als persoonlijk aansprakelijk voor alle verbintenissen waarvoor ik 
+						zojuist akkoord heb gegeven, zowel financi&euml;el als spiritueel. Op dit moment zijn al mijn 
+						lopende rekenenigen volledig verpand aan de organisatie van Bijna2009.com en ter 
+						zekerheidstelling van eventuele algemene schulden stel ik mijn organen, die van mijn partner 
+						en eventuele kinderen beschikbaar.
+					</td>
+				</td>
+				</tr>
+				{% endifequal %}
+				{% ifequal registered 'nee' %}
+				<tr>
+					<td>
+					Nee, ben er niet bij... maar ga wel akkoord met de algemene voorwaarden zoals deze te lezen zijn in deze disclaimer. 
+						Ik ben zowel hoofdelijk als persoonlijk aansprakelijk voor alle verbintenissen waarvoor anderen 
+						zojuist akkoord hebben gegeven, zowel financi&euml;el als spiritueel. Op dit moment zijn al mijn 
+						lopende rekenenigen volledig verpand aan de organisatie van Bijna2009.com en ter 
+						zekerheidstelling van eventuele algemene schulden stel ik mijn organen, die van mijn partner 
+						en eventuele kinderen beschikbaar.
+					</td>
+				</td>
+				</tr>
+				{% endifequal %}
+				{% if registered %}
+				{% else %}		
+				<tr>
+					<td><b>
+					<a
+						class="nee" 
+						style="float:right;font-family:Arial;font-size:16px;text-decoration:underline;padding-right:0px;margin-right:0px;" 
+						href="javascript:void(0);" 
+						onclick="$('attend').value='nee';$('signupFormDiv').style.display='';$('n').style.display='';$('j').style.display='none';" id="nee">
+						Nee, helaas...</a>	
+					<a 
+						class="ja"
+						style="float:left;font-family:Arial;font-size:16px;text-decoration:underline;" 
+						href="javascript:void(0);" 
+						onclick="$('attend').value='ja';$('signupFormDiv').style.display='';$('n').style.display='none';$('j').style.display='';">
+						Ja, ben erbij...</a></b>
+											
+						<div style="display:none;" id="disclaimer">
+						en ga akkoord met de algemene voorwaarden zoals deze te lezen zijn in deze disclaimer. 
+						Ik ben zowel hoofdelijk als persoonlijk aansprakelijk voor alle verbintenissen waarvoor ik 
+						zojuist akkoord heb gegeven, zowel financi&euml;el als spiritueel. Op dit moment zijn al mijn 
+						lopende rekenenigen volledig verpand aan de organisatie van Bijna2009.com en ter 
+						zekerheidstelling van eventuele algemene schulden stel ik mijn organen, die van mijn partner 
+						en eventuele kinderen beschikbaar.<br/>
+					    </div>	
+					    
+					    <br clear="all"/>
+						<div id="signupFormDiv" style="display:none;padding:10px;">
+						      	<div id="j" style="display:none;">Gezellig... Laat het ons weten en vul onderstaand formulier in aub.</div>
+								<div id="n" style="display:none;">Jammer... Laat het ons weten en vul onderstaand formulier in aub.</div>
+								<br/>
+								<div id="formFeedback" style="display:none;"></div>
+								<br/>
+						      	Naam*<br/>
+						      	<input name="name" id="name" value="{{name}}">
+								Email*<br/>
+						      	<input name="email" id="email" value="">
+						      	<input name="attend" id="attend" type="hidden" value="ja">
+						      	Mijn goede/ slechte voornemens voor 2009?*<br/>
+						      	<textarea 
+						      		style="" 
+						      		name="voornemen2009" 
+						      		rows="3"></textarea>
+						      	Domste actie van 2008?*<br/>
+						      	<textarea 
+						      		style="" 
+						      		name="trickquestion" 
+						      		rows="3"></textarea>	
+						      	Iets anders? Iemand vergeten?<br/>
+						      	<textarea 
+						      		style="" 
+						      		name="content" 
+						      		rows="3"></textarea>
+						     <a                          
+						      	href="javascript:document.signupForm.submit();" 
+						      	style="float:right;color:#ad9e29;text-decoration:underline;" 
+						      	onclick="return checkForm();">
+						      	Verstuur
+						     </a>	
+						     <br/>
+						     * = verplicht veld						    
+					    </div>
+					</td>					
+				</tr>
+				{% endif %}										 			
+				</form>						
+			</table>						
+		</div>
+		{%endifequal%}
+		
+	</div>
+	<!-- </div> -->		
+
+
+
+</center>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-1205790-4");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+
+cookies are only set once someone sings up (ja/nee)
+
+1. geen query parameter
+-> check cookies
+   -> cookies available 
+	-> show whole page... (client)
+   	-> greet all cookies (client)
+   -> vraag om naam en ga naar 2. (client)
+
+2. /naam query parameter
+-> check cookies
+   -> cookies available 
+	-> show whole page... (client)
+-> check db
+   -> if available show page (client)
+	-> show whole page... (client)
+-> show signup form
+
+3. /Iemand_anders
+-> vraag om naam en ga naar 2. (client)
