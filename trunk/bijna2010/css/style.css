@@ -22,7 +22,13 @@
 		font: 12px "Courier New", Courier, Sans-Serif;
 	}
 	
-	.s {font-size:11px;font-family:arial;color:#999999;}
+	.error {
+		color: red;
+		text-decoration: none;
+		font-weight:bold;
+	}
+		
+	.s {font-size:11px;font-family:arial;color:#666666;}
 	
 	.img {display:block;}
 	

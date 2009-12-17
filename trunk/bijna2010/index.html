@@ -11,8 +11,9 @@
 </head>
 <body>
 
-<form action="/signup" method="post" id="signupForm" name="signupForm" onsubmit="return checkForm();">
-<div id="header">	
+
+<div id="header" style="text-align:center;font-weight:bold;padding-top:10px;">
+		{% ifnotequal hey '' %}{{hey}}{% ifequal inviteeAmount 1 %}je bent al geregistreerd. We houden je op de hoogte.{% else %}jullie zijn al geregistreerd. We houden jullie op de hoogte.{% endifequal %}{% endifnotequal %}
 </div>
 <div class="colmask doublepage">
 	<div class="colleft">
@@ -26,20 +27,20 @@
 			</div>
 			
 				
-				
+			
 			{% ifequal inviteeAmount 1 %}		
-						
-					
-					{% ifequal registered 'ja' %}					
+					{% ifequal registered 'ja' %}	
 					{% endifequal %}
 					
-					{% ifequal registered 'nee' %}					
+					{% ifequal registered 'nee' %}	
 					{% endifequal %}
 					
-					{% if registered %}
-					{% else %}					
+					{% if registered %}		
+					{% else %}		
 					{% endif %}										 			
 			{%endifequal%}
+				<div style="float:right;width:309px;">
+				
 				<div class="pr" id="of" style="float:right;display:none;margin-top:50px;font-size:12px;font-family:arial;">					
 						
 						<div style="padding:0px;float:right;width:309px;background-image: url('/2010/img/bgintro.gif');">
@@ -49,7 +50,7 @@
 							</div>
 							<img class="img" src="/2010/img/left_text.gif" width="309" height="171" border="0" />	
 						</div>
-						<div style="padding:0px;float:right;width:309px;">
+						<div id="leftBenJeErbij" style="padding:0px;float:right;width:309px;">
 							<div style="border:7px solid #efefef;">
 								<center><img src="/2010/img/ben_je_erbij.gif" width="156" height="40" border="0" /></center>
 								<a 
@@ -63,33 +64,53 @@
 							</div>	
 						</div>
 						    <br clear="all"/>
-							<div id="signupFormDiv" style="display:none;padding:40px;float:right;width:230px;background-image: url('/2010/img/bgintro.gif');">
+							<div id="leftSignupFormDiv" style="display:none;padding:40px;float:right;width:230px;background-image: url('/2010/img/bgintro.gif');">
 							      	<div id="j" style="display:none;">Gezellig... Laat het ons weten en vul onderstaand formulier in en wij geven je zo snel mogelijk de details.</div>
 									<div id="n" style="display:none;">Jammer... Laat het ons weten en vul onderstaand formulier in aub.</div>
 									<br/>
-									
-									Naam<br/>
-							      	<input name="name" id="name" value="{{name}}"><br/>
-									Email adres<br/>
-							      	<input name="email" id="email" value=""><br/>
-							      	<input name="attend" id="attend" type="hidden" value="ja">
-									Iemand vergeten? Iets anders?<br/>
+									<div id="left_feedback" style="display:none;background-color:red;color:white;padding:10px;text-align:center;"></div>
+									<form action="/signup" method="post" id="leftSignupForm" name="leftSignupForm" onsubmit="return checkForm();">
+									<!-- attend -->
+									<input name="attend" id="left_attend" type="hidden" value="ja">
+									<!-- activity -->
+									<input name="activity" id="left_activity" type="hidden" value="Oud en Nieuw 2010">
+									<!-- visible form -->
+									<label for="left_name" id="l_left_name">Naam *</label><br/>
+							      	<input name="name" id="left_name" value="{{name}}"><br/>
+									<label for="left_email" id="l_left_email">Email adres *</label><br/>
+							      	<input name="email" id="left_email" value=""><br/>							      	
+									<label for="left_other" id="l_left_other">Iemand vergeten? Iets anders?</label><br/>
 							      	<div class="s">Emailadressen, vragen, verzoeken en verwensingen aan de organisatie.</div>
 							      	<textarea 
 							      		style="" 
-							      		name="content" 
+										id="left_other"
+							      		name="other" 
 							      		rows="3"></textarea><br/>
 							     <a style="float:right;margin-right:20px;"
 							        class="submitButton" 
+									id="left"
 							      	href="#">
 							      	Verstuur
 							     </a>	
-							    
-						    </div>
+								 </form>
+							</div>
+						    <div id="leftResultPage" style="text-align:center;display:none;padding:40px;float:right;width:230px;background-image: url('/2010/img/bgintro.gif');">
+								<div id="left_ja_activity" style="display:none;">
+									<b>Bedankt voor je aanmelding.</b><br>
+									Binnenkort lees je hier meer info. We houden je op de hoogte.
+								</div>
+								<div id="left_nee_activity" style="display:none;">
+									<b>Bedankt voor je feedback.</b><br>
+									Volgend jaar beter. Als je je bedenkt horen we het graag.
+								</div>
+								<br>
+								<a href="mailto:bijna2010@ccxlv.nl">Vragen of opmerkingen?</a>
+							</div>
+							
 						
 					
 			</div>
-			
+			</div>
 
 			<!-- Column 1 end -->
 		</div>
@@ -102,14 +123,15 @@
 				<img style="cursor:pointer;" src="/2010/img/uitnodiging_cannonballrun.gif" width="375" height="104" border="0">
 			</div>
 			
+			<div style="float:left;width:309px;">
 			<div class="pr" id="cf" style="float:left;display:none;margin-top:50px;font-size:12px;font-family:arial;">
 						 	
 				<div id="cb_step_1" style="display:none;padding:0px;float:left;width:309px;background-image: url('/2010/img/bgintro.gif');">						
-					<img class="img" src="/2010/img/tp.gif" width="309" height="171" border="0" />
+					<img class="img" src="/2010/img/cannonballrun_top.gif" width="309" height="171" border="0" />
 				</div>
 				
 				<div id="cb_step_2" style="display:none;padding:0px;float:left;width:309px;background-image: url('/2010/img/bgintro.gif');">
-					<img class="img" src="/2010/img/car.gif" width="309" height="171" border="0" />					
+					<img class="img" src="/2010/img/cannonballrun_bottom.gif" width="309" height="171" border="0" />					
 				</div>					
 				
 				<div id="cb_step_3" style="display:none;padding:0px;float:left;width:309px;">						
@@ -117,10 +139,30 @@
 				</div>
 				
 				<div id="cb_step_4" style="display:none;padding:0px;float:left;width:309px;">
-					<img class="img" src="/2010/img/meer_weten.gif" width="156" height="40" border="0" />
-					
-					<div style="display:none;padding:0px;float:left;width:309px;">
-						<div style="border:7px solid #efefef;">
+						<div id="meerweten" style="padding:0px;float:right;width:309px;">
+							<div style="border:7px solid #efefef;">
+								<center><img class="img" src="/2010/img/meer_weten.gif" width="156" height="40" border="0" /></center>
+								<a 
+									href="#"  
+									onclick="meerWeten()">
+									<img src="/2010/img/jaikwil.gif" width="124" height="40" border="0" /></a>
+								<a
+									href="http://images.google.com/images?hl=en&q=chicken&um=1&ie=UTF-8&sa=N&tab=wi" target="_blank">
+									<img src="/2010/img/neelaatmaar.gif" width="160" height="40" border="0" /></a>	
+							</div>	
+						</div>
+						
+					<div id="moreinfo" style="display:none;float:left;width:309px;background-image: url('/2010/img/bgintro.gif');">
+						<div id="moreinfotext" style="padding:20px;">
+							23 januri starten we om 10:00 en de finish zal rond 16:00 zijn. Elk deelnemend voertuig 
+							dient te beschikken over een cd speler die mp3'tjes kan spelen; daarnaast hedde een 
+							digitale camera nodig.<br>
+							<br>
+							Tussentijds is er een spectaculaire lunch voor alle deelnemers. De computers van de organisatie 
+							hebben ongeveer 2 uur nodig om de definitieve winnaar de bepalen. De borrel zal dus plaatsvinden 
+							van 16:00 tot 18:00. Na afloop van de borrel is er een diner.
+						</div>
+						<div id="rightBenJeErbij" style="border:7px solid #efefef;background-image: url('/2010/img/tp.gif');background-color:white;">
 							<center><img src="/2010/img/ben_je_erbij.gif" width="156" height="40" border="0" /></center>
 							<a 
 								href="#"  
@@ -136,33 +178,61 @@
 				
 				
 			 	<br clear="all"/>
-			 	<div id="cbSignupFormDiv" style="display:none;padding:40px;float:left;width:230px;background-image: url('/2010/img/bgintro.gif');">
+			 	<div id="rightSignupFormDiv" style="display:none;padding:40px;float:left;width:230px;background-image: url('/2010/img/bgintro.gif');">
 				      	<div id="cb_j" style="display:none;">Gezellig... Laat het ons weten en vul onderstaand formulier in en wij geven je zo snel mogelijk de details.</div>
 						<div id="cb_n" style="display:none;">Jammer... Laat het ons weten en vul onderstaand formulier in aub.</div>
 						<br/>
-						<form action="/signup" method="post" id="signupForm" name="signupForm" onsubmit="return checkForm();">
-						Naam<br/>
-				      	<input name="cb_name" id="cb_name" value="{{name}}"><br/>
-						Email adres<br/>
-				      	<input name="cb_email" id="cb_email" value="{{email}}"><br/>
-				      	Neem je een auto mee<br/>
-				      	<input style="width:22px;" type="radio" name="cb_auto" id="cb_auto" value="ja">ja
-				      	<input style="width:22px;" type="radio" name="cb_auto" id="cb_auto" value="nee">nee<br>
-				      	Aantal schadevrije jaren?<br/>
-				      	<input name="cb_schadevrij" id="cb_schadevrij" value=""><br/>
-				      	<input name="cb_attend" id="cb_attend" type="hidden" value="ja" />
-						Iemand vergeten? Iets anders?<br/>
-				      	<div class="s">Laat het ons hun email adressen weten dan sturen we ze ook deze uitnodiging.</div>
+						<div id="right_feedback" style="display:none;background-color:red;color:white;padding:10px;text-align:center;"></div>
+						<form action="/signup" method="post" id="rightSignupForm" name="rightSignupForm" onsubmit="return checkForm();">
+						<!-- attend -->
+						<input name="attend" id="right_attend" type="hidden" value="ja" />
+						<!-- activity -->
+						<input name="activity" id="right_activity" type="hidden" value="Cannonballrun">
+						<!-- visible form -->
+						<label for="right_name" id="l_right_name">Naam</label><br/>						
+				      	<input name="name" id="right_name" value="{{name}}"><br/>
+						<label for="right_email" id="l_right_email">Email adres</label><br/>
+				      	<input name="email" id="right_email" value="{{email}}"><br/>
+						<div id="extraquestions">
+							<label for="right_auto" id="l_right_auto">Neem je een auto mee</label><br/>
+							<input style="width:22px;" type="radio" name="auto" id="right_auto" value="ja">ja
+							<input style="width:22px;" type="radio" name="auto" id="right_auto" value="nee">nee<br>
+							<label for="schadevrij" id="l_right_schadevrij">Aantal schadevrije jaren?</label><br/>
+							<input name="schadevrij" id="right_schadevrij" value=""><br/>
+							<label for="right_mp3" id="l_right_mp3">Kun je mp3tjes afspelen in je auto?</label><br/>
+							<input style="width:22px;" type="radio" name="mp3" id="right_mp3" value="ja">ja
+							<input style="width:22px;" type="radio" name="mp3" id="right_mp3" value="nee">nee<br>
+							<label for="right_diner" id="l_right_diner">Blijf je dineren?</label><br/>
+							<input style="width:22px;" type="radio" name="diner" id="right_diner" value="ja">ja
+							<input style="width:22px;" type="radio" name="diner" id="right_diner" value="nee">nee<br>
+						</div>
+						<label for="right_other" id="l_right_other">Iemand vergeten? Iets anders?</label><br/>
+				      	<div class="s">Emailadressen, vragen, verzoeken en verwensingen aan de organisatie.</div>
 				      	<textarea 
-				      		style="" 
-				      		name="content" 
+				      		style=""
+							id="right_other"
+				      		name="other" 
 				      		rows="3"></textarea><br/>
-				     <a
-						class="submitButton" href="#">
-				      	Verstuur
-				     </a>
-				     </form>					    
+						 <a
+							class="submitButton" id="right" href="#">
+							Verstuur
+						 </a>		
+						</form>
 			    </div>
+				
+				<div id="rightResultPage" style="text-align:center;display:none;padding:40px;float:left;width:230px;background-image: url('/2010/img/bgintro.gif');">
+					<div id="right_ja_activity" style="display:none;">
+						<b>Bedankt voor je aanmelding.</b><br>
+						Binnenkort lees je hier meer info. We houden je op de hoogte.
+					</div>
+					<div id="right_nee_activity" style="display:none;">
+						<b>Bedankt voor je feedback.</b><br>
+						Volgend jaar beter. Als je je bedenkt horen we het graag.
+					</div>
+					<br>
+					<a href="mailto:bijna2010@ccxlv.nl">Vragen of opmerkingen?</a>
+				</div>
+			</div>
 			</div>
 			<!-- Column 2 end -->
 		</div>
@@ -171,6 +241,5 @@
 <div id="footer">
 	
 </div>
- </form>
 </body>
 </html>
