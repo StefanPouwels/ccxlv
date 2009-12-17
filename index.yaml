@@ -10,19 +10,16 @@ indexes:
 # automatically uploaded to the admin console when you next deploy
 # your application using appcfg.py.
 
-# Used 122 times in query history.
 - kind: Greeting
   properties:
   - name: date
     direction: desc
 
-# Used 162 times in query history.
 - kind: Invites
   properties:
   - name: date
     direction: desc
 
-# Used 149 times in query history.
 - kind: Invites2010
   properties:
   - name: date

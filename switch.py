@@ -7,6 +7,8 @@ from google.appengine.ext.webapp import template
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
+from google.appengine.api import mail
+
 
 def getNick(name):
     nick = name
@@ -88,15 +90,18 @@ def hasOffspring(name):
         hasOffspring = 1           
     return hasOffspring
 
-class Invites2010(db.Model):
-  name = db.StringProperty()
-  content = db.StringProperty(multiline=True)
-  date = db.DateTimeProperty(auto_now_add=True)
-  attend = db.StringProperty()
-  cookie = db.StringProperty()
-  email = cookie = db.StringProperty()
-  voornemen2009 = db.StringProperty(multiline=True)
-  trickquestion = db.StringProperty(multiline=True)
+class InvitesPerActivity(db.Model):    
+    date = db.DateTimeProperty(auto_now_add=True)
+    attend = db.StringProperty()
+    activity = db.StringProperty()
+    name = db.StringProperty()
+    email = db.StringProperty()
+    cookie = db.StringProperty()
+    other = db.StringProperty(multiline=True)
+    auto = db.StringProperty()
+    schadevrij = db.StringProperty()
+    mp3 = db.StringProperty()
+    diner = db.StringProperty()
 
 class MainPage(webapp.RequestHandler):
   def get(self):
@@ -115,7 +120,7 @@ class MainPage(webapp.RequestHandler):
       target = 'index.html'
 
     ##### getting the inviteelist and comments
-    invites_query = Invites2010.all().order('-date')
+    invites_query = InvitesPerActivity.all().order('-date')
     invites = invites_query.fetch(100)
  
     ##### getting the queryparamter
@@ -150,7 +155,7 @@ class MainPage(webapp.RequestHandler):
                   if i < l:
                       hey = hey + ', ' 
             if inviteeAmount == 1:
-                r = db.GqlQuery("SELECT * FROM Invites2010 WHERE name = :1",name)
+                r = db.GqlQuery("SELECT * FROM InvitesPerActivity WHERE name = :1",name)
                 results = r.fetch(5)
                 for p in results:
                     registered = p.attend
@@ -165,13 +170,13 @@ class MainPage(webapp.RequestHandler):
                registered = C[name].value 
           else: ##### Wel een cookie maar niet van deze persoon...
               ##### Check db...
-              r = db.GqlQuery("SELECT * FROM Invites2010 WHERE name = :1",name)
+              r = db.GqlQuery("SELECT * FROM InvitesPerActivity WHERE name = :1",name)
               results = r.fetch(5)
               for p in results:
                   registered = p.attend
         else: ##### Maar geen cookie (user zit thuis/ op zijn werk)
           ##### Check db...
-          r = db.GqlQuery("SELECT * FROM Invites2010 WHERE name = :1",name)
+          r = db.GqlQuery("SELECT * FROM InvitesPerActivity WHERE name = :1",name)
           results = r.fetch(5)
           for p in results:
             registered = p.attend
@@ -207,24 +212,45 @@ class MainPage(webapp.RequestHandler):
     
 class registerInvites2010(webapp.RequestHandler):
   def post(self):
-    invites = Invites2010()
+    invites = InvitesPerActivity()
           
     ##### Naam en dus cookie met een hoofletter
     name = self.request.get('name')
     name = name[:1].upper() + name[1:]
       
-    invites.name          = name
-    invites.content       = self.request.get('content')
     invites.attend        = self.request.get('attend')
-    invites.cookie        = self.request.get('attend')
+    invites.activity      = self.request.get('activity')
+    invites.name          = name
     invites.email         = self.request.get('email')
-    invites.voornemen2009 = self.request.get('voornemen2009')
-    invites.trickquestion = self.request.get('trickquestion')	
-	
+    invites.cookie        = self.request.get('attend')
+    invites.other         = self.request.get('other')
+    invites.auto          = self.request.get('auto')
+    invites.schadevrij    = self.request.get('schadevrij')
+    invites.mp3           = self.request.get('mp3')
+    invites.diner         = self.request.get('diner')
+
     invites.put()
     
     cookiename = name
     cookiename = str(cookiename.replace(" ","_"))
+    
+    if self.request.get('attend') == 'nee':
+        janeetekst = "Jammer dat je niet komt. Volgend jaar beter. Als je je bedenkt horen we het graag."
+    
+    if self.request.get('attend') == 'ja':
+        janeetekst = "Gezellig dat je erbij bent. Je staat ingeschreven voor: " + self.request.get('activity') + "."
+
+    mail.send_mail(sender="Bijna2010 <bijna2010@ccxlv.nl>",
+                  to=self.request.get('email'),
+                  subject="Bevestiging " + self.request.get('activity'),
+                  body="""
+    Beste """ + name + """
+            
+    """ + janeetekst + """
+    
+    Mvg
+    Bijna2010
+    """)
     
     if cookiename != '':    
         C = Cookie.SmartCookie() 
