@@ -1,7 +1,7 @@
-application: ccxlv
-version: 9
-runtime: python
-api_version: 1
+# application: hansenmaddy
+# version: 1
+runtime: python27
+threadsafe: false
 
 handlers:
 
@@ -19,16 +19,20 @@ handlers:
 - url: /loip/img/
   static_dir: ladyOnIctProjects/img/
 
+  # hand en Maddy
+- url: /plaatjes/
+  static_dir: img/
+
   # zuidvast
 - url: /zv/css/
   static_dir: zuidvast/css/
 
 - url: /zv/img/
   static_dir: zuidvast/img/
-  
+
 - url: /zv/js/
-  static_dir: zuidvast/js/  
-  
+  static_dir: zuidvast/js/
+
 - url: /index2.html
   script: zuidvast.py
 
@@ -37,17 +41,17 @@ handlers:
 
   # bijna2010
 - url: /signup.*
-  script: switch.py  
-  
+  script: switch.py
+
 - url: /2010/css/
   static_dir: bijna2010/css/
 
 - url: /2010/img/
   static_dir: bijna2010/img/
-  
+
 - url: /2010/js/
-  static_dir: bijna2010/js/  
-  
+  static_dir: bijna2010/js/
+
 - url: /index.html
   script: bijna2010.py
 
@@ -57,10 +61,10 @@ handlers:
 
 - url: /ccxlv/img/
   static_dir: ccxlv/img/
-  
+
   # mannenweekend 2008
 - url: /mannenweekend2008.*
-  script: mannenweekend2008.py  
+  script: mannenweekend2008.py
 
 - url: /mw/img/
   static_dir: mw2008/img/
@@ -77,4 +81,3 @@ handlers:
 #- url: /admin/.*
 #  script: admin.py
 #  login: admin
-
